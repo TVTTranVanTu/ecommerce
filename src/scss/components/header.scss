@@ -1,0 +1,118 @@
+.header {
+    padding: 1rem 0px 0.625rem;
+    .container {
+        .header__logo {
+            width: 15%;
+            .shopee-svg-icon {
+                width: 162px;
+                height: 50px;
+                fill: #fff;
+            }
+        }
+        .header__search {
+            width: 70%;
+            .searchbar {
+                width: 100%;
+                display: flex;
+                align-items: stretch;
+                justify-content: space-between;
+                height: 2.5rem;
+                box-sizing: border-box;
+                padding: 0.1875rem;
+                border-radius: 2px;
+                background: #fff;
+                .searchbar__main {
+                    position: relative;
+                    width: 100%;
+                    .form-searchbar-input {
+                        background-color: #fff;
+                        border-color: #fff;
+                        box-sizing: border-box;
+                        padding-left: 0.625rem;
+                        height: 100%;
+                        width: 100%;
+                        .search-input {
+                            display: flex;
+                            flex: 1;
+                            align-items: center;
+                            outline: none;
+                            border: none;
+                            padding: 0;
+                            margin: 0;
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .btn-solid-primary {
+                    background: #fb5533;
+                    color: #fff;
+                }
+                .btn--s {
+                    height: 34px;
+                    padding: 0 15px;
+                    min-width: 60px;
+                    max-width: 190px;
+                }
+                .btn {
+                    svg {
+                        margin: 0 auto;
+                        fill: #fff;
+                    }
+                }
+            }
+            .search-type-product {
+                width: 100%;
+                .list-type-product {
+                    display: flex;
+                    margin-top: 5px;
+                    height: 20px;
+                    font-size: 12px;
+                    font-weight: 300;
+                    line-height: 0.875rem;
+                    flex-wrap: nowrap;
+                    overflow: hidden;
+                    flex-wrap: wrap;
+                    a {
+                        white-space: nowrap;
+                        display: block;
+                        color: rgba(0, 0, 0, 0.54);
+                        margin-left: 20px;
+                        color: hsla(0, 0%, 100%, 0.9);
+                    }
+                    a:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+        .header__cart {
+            width: 15%;
+            text-align: center;
+            align-items: center;
+            .icon-shopping-cart-2 {
+                fill: #fff;
+                color: #fff;
+                stroke: #fff;
+                width: 26px;
+                height: 26px;
+                cursor: pointer;
+            }
+            .navbar__link-icon {
+                .icon-shopping-cart-2 {
+                    fill: currentColor;
+                    width: 26px;
+                    height: 26px;
+                    cursor: pointer;
+                }
+            }
+            .cart-drawer {
+                .icon-shopping-cart-2 {
+                    color: #fff;
+                    stroke: #fff;
+                }
+            }
+        }
+    }
+}

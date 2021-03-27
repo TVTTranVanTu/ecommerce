@@ -1,0 +1,117 @@
+.slider-banner {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    line-height: 0;
+    min-height: 235px;
+    max-height: 235px;
+    .slider-show {
+        width: 66.66666%;
+        box-sizing: border-box;
+        .slider {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            button {
+                position: absolute;
+                top: 50%;
+            }
+            .slick-next {
+                right: 0;
+            }
+            .slick-prev {
+                left: 0;
+            }
+            .slick-prev,
+            .slick-next {
+                visibility: hidden;
+                width: 2.1875rem;
+                height: 3.75rem;
+                background-color: rgba(0, 0, 0, 0.18);
+                border-radius: 0;
+                border-radius: initial;
+                border-radius: 0;
+                z-index: 1000;
+            }
+            .slick-prev:before {
+                font-weight: 900;
+                content: "\02C2";
+            }
+            .slick-next:before {
+                content: "\02C3";
+                font-weight: 900;
+            }
+            .slick-prev:before,
+            .slick-next:before {
+                font-size: 20px !important;
+                opacity: 1;
+            }
+            img {
+                vertical-align: middle;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 100%;
+                height: 100%;
+            }
+            .slick-dots {
+                bottom: 10%;
+                li {
+                    button {
+                        font-size: 12px !important;
+                    }
+                    button:before {
+                        font-size: 12px !important;
+                        color: #fff !important;
+                    }
+                }
+
+                .slick-active :before {
+                    color: rgb(255, 94, 0) !important;
+                }
+            }
+        }
+        .slider:hover {
+            .slick-next,
+            .slick-prev {
+                visibility: visible;
+            }
+        }
+    }
+    .banners__right-banner {
+        width: 33.33333%;
+        box-sizing: border-box;
+        flex: 1 1 0;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0.3125rem;
+        .image-banner {
+            text-decoration: none;
+            border-top-right-radius: 2px;
+            overflow: hidden;
+            color: rgba(0, 0, 0, 0.8);
+            display: block;
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 0.125rem;
+            flex: 1 1 50%;
+            background-position: bottom;
+            .image-banner-content {
+                height: 100%;
+                position: relative;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}
