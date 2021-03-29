@@ -1,6 +1,7 @@
 import React from 'react';
 import BannersWrapper from '../Components/BannersWrapper';
 import Category from '../Components/Category';
+import FlashSale from '../Components/FlashSale';
 
 function Home(props) {
     return (
@@ -14,6 +15,7 @@ function Home(props) {
                 </div>
             </div>
             <Category />
+            <FlashSale />
         </div>
     );
 }

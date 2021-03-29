@@ -195,5 +195,10 @@ const Data = {
 
 
     ],
+    flashSale: [
+        {
+
+        }
+    ]
 };
 export default Data;

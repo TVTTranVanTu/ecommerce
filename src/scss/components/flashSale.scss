@@ -1,0 +1,25 @@
+.flash__sale {
+    .container {
+        .flash-sale-title {
+            .flash-sale-contain {
+                height: 30px;
+                line-height: 1.875rem;
+                margin: 0 auto;
+                position: relative;
+                display: inline-flex;
+                pointer-events: all;
+                .flash-sale-icon {
+                    padding-left: 16px;
+                    width: 114px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    background: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/fb1088de81e42c4e538967ec12cb5caa.png)
+                        50% no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+    }
+}

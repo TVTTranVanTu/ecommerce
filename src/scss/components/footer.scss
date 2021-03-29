@@ -1,0 +1,308 @@
+.footer {
+    position: relative;
+    bottom: 0;
+    min-width: 75rem;
+    border-top: 4px solid #ee4d2d;
+    background-color: #fbfbfb;
+    color: rgba(0, 0, 0, 0.54);
+    .container {
+        display: block;
+        .footer__contact {
+            .footer__contact-top {
+                display: flex;
+                margin: 0 -0.3125rem;
+                padding: 0.3125rem;
+                width: 100%;
+                .footer__contact-block {
+                    width: 20%;
+                    padding: 0.3125rem;
+                    box-sizing: border-box;
+                    .block-title {
+                        text-transform: uppercase;
+                        font-size: 0.75rem;
+                        font-weight: 700;
+                        color: rgba(0, 0, 0, 0.54);
+                        margin-bottom: 1.25rem;
+                        margin-top: 2.5rem;
+                    }
+                    .list-item {
+                        padding: 0;
+                    }
+                    .item {
+                        font-size: 0.75rem;
+                        margin-bottom: 0.75rem;
+                        text-transform: capitalize;
+                        a {
+                            text-decoration: none;
+                            color: rgba(0, 0, 0, 0.54);
+                        }
+                    }
+                    .list-item-image {
+                        width: 11.875rem;
+                        display: flex;
+                        flex-wrap: wrap;
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0 0 1.0625rem;
+                        .item-image {
+                            width: 3.4375rem;
+                            height: 1.8125rem;
+                            margin-bottom: 0.5rem;
+                            margin-right: 0.5rem;
+                            overflow: hidden;
+                            display: flex;
+                            .image {
+                                background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/49b5753902db445292818641f17183b0.png);
+                            }
+                            .visa {
+                                width: 55px;
+                                height: 18px;
+                                background-size: 1390.909090909091% 1194.4444444444443%;
+                                background-position: 73.52112676056338% 5.0761421319796955%;
+                            }
+                            .master-card {
+                                background-size: 1390.909090909091% 741.3793103448276%;
+                                background-position: 44.50704225352113% 5.376344086021505%;
+                                width: 55px;
+                                height: 29px;
+                            }
+                            .jcb {
+                                width: 55px;
+                                height: 23px;
+                                background-size: 1390.909090909091% 934.7826086956521%;
+                                background-position: 37.183098591549296% 30.729166666666668%;
+                            }
+                            .amex-png {
+                                width: 55px;
+                                height: 24px;
+                                background-size: 1530% 977.2727272727273%;
+                                background-position: 11.188811188811188% 5.181347150259067%;
+                            }
+                            .cod {
+                                width: 50px;
+                                height: 29px;
+                                background-size: 1530% 741.3793103448276%;
+                                background-position: 79.3006993006993% 25.806451612903224%;
+                            }
+                            .installment {
+                                width: 55px;
+                                height: 29px;
+                                background-size: 1390.909090909091% 741.3793103448276%;
+                                background-position: 79.85915492957747% 52.1505376344086%;
+                            }
+                            .air-pay {
+                                width: 23px;
+                                height: 29px;
+                                background-size: 1912.5% 413.46153846153845%;
+                                background-position: 1.3793103448275863% 6.134969325153374%;
+                            }
+                            .express {
+                                width: 55px;
+                                height: 10px;
+                                background-size: 689.1891891891892% 1194.4444444444443%;
+                                background-position: 59.78593272171254% 5.0761421319796955%;
+                            }
+                            .ghtk {
+                                width: 55px;
+                                height: 18px;
+                                background-size: 1390.909090909091% 1194.4444444444443%;
+                                background-position: 19.295774647887324% 51.776649746192895%;
+                            }
+                            .ghn {
+                                width: 55px;
+                                height: 29px;
+                                background-size: 1390.909090909091% 741.3793103448276%;
+                                background-position: 8.732394366197184% 54.83870967741935%;
+                            }
+                            .viettel_post {
+                                width: 55px;
+                                height: 40px;
+                                background-size: 597.65625% 167.96875%;
+                                background-position: 65.77708006279435% 100%;
+                            }
+                            .vnpost {
+                                width: 55px;
+                                height: 27px;
+                                background-size: 1390.909090909091% 796.2962962962963%;
+                                background-position: 100% 5.319148936170213%;
+                            }
+                            .vn_jnt_footer {
+                                width: 55px;
+                                height: 16px;
+                                background-size: 1390.909090909091% 1343.75%;
+                                background-position: 84.08450704225352% 5.025125628140704%;
+                            }
+                            .grab_express {
+                                width: 55px;
+                                height: 15px;
+                                background-size: 570.8955223880597% 741.3793103448276%;
+                                background-position: 25.673534072900157% 5.376344086021505%;
+                            }
+                            .vn_now {
+                                width: 55px;
+                                height: 32px;
+                                background-size: 956.25% 268.75%;
+                                background-position: 46.13138686131387% 77.77777777777777%;
+                            }
+                            .ninja {
+                                width: 55px;
+                                height: 20px;
+                                background-size: 1275% 826.9230769230769%;
+                                background-position: 48.08510638297872% 31.21693121693122%;
+                            }
+                            .best-express {
+                                width: 55px;
+                                height: 22px;
+                                background-size: 1062.5% 716.6666666666666%;
+                                background-position: 10.1010101010101% 28.10810810810811%;
+                            }
+                        }
+                    }
+                    .contact {
+                        display: block;
+                        .item-image {
+                            font-size: 0.75rem;
+                            margin-bottom: 0.75rem;
+                            text-transform: capitalize;
+                            width: 100% !important;
+                            a {
+                                display: flex;
+                                text-decoration: none;
+                                color: rgba(0, 0, 0, 0.54);
+                            }
+                        }
+                        .image {
+                            height: 1rem !important;
+                            width: 1rem !important;
+                            margin-bottom: 0.25rem;
+                            margin-right: 0.625rem;
+                        }
+                        .facebook {
+                            background-size: 2390.625% 671.875%;
+                            background-position: 1.364256480218281% 44.80874316939891%;
+                        }
+                        .instagram {
+                            background-size: 2390.625% 671.875%;
+                            background-position: 28.922237380627557% 32.240437158469945%;
+                        }
+                        .LinkedIn {
+                            background-size: 2390.625% 671.875%;
+                            background-position: 36.01637107776262% 55.73770491803279%;
+                        }
+                    }
+                    .link_download-app {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        ._1GU-58,
+                        .tnOn1x {
+                            height: 5.25rem;
+                        }
+                        ._1GU-58 {
+                            border: 0.0625rem solid rgba(0, 0, 0, 0.09);
+                            width: 5.25rem;
+                            margin-right: 0.9375rem;
+                        }
+                        .tnOn1x {
+                            justify-content: space-around;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        ._2OIm6O {
+                            width: 5rem;
+                        }
+                    }
+                }
+            }
+            .footer__contact-bottom {
+                justify-content: space-between;
+                margin: 0 -0.3125rem;
+                padding: 0.3125rem;
+                border-top: 0.03125rem solid rgba(0, 0, 0, 0.1);
+                min-height: 5.625rem;
+                color: rgba(0, 0, 0, 0.54);
+                display: flex;
+                align-items: center;
+                ._3iAbMl {
+                    display: flex;
+                    .qO3oPb {
+                        border-right: 1px solid rgba(0, 0, 0, 0.2);
+                        padding: 0 0.3125rem;
+                        ._3fl0h0 {
+                            text-decoration: none;
+                            color: rgba(0, 0, 0, 0.54);
+                        }
+                    }
+                }
+            }
+        }
+        .footer__end {
+            font-size: 0.75rem;
+            color: rgba(0, 0, 0, 0.65);
+            padding: 2.625rem 0 2.3125rem;
+            background: #f5f5f5;
+            .footer__end-content {
+                width: 75rem;
+                margin: 0 auto;
+                ._3hZhfd {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 2.5rem;
+                    ._1Q6CiU {
+                        padding: 0 1.5625rem;
+                        border-right: 1px solid rgba(0, 0, 0, 0.09);
+                        text-transform: uppercase;
+                        font-size: 0.75rem;
+                        ._1g5laT {
+                            text-decoration: none;
+                            display: block;
+                            color: rgba(0, 0, 0, 0.54);
+                        }
+                    }
+                }
+                ._14eYNa {
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 0;
+                    ._3UA5oc {
+                        text-decoration: none;
+                        color: rgba(0, 0, 0, 0.8);
+                        margin: 0 1.25rem;
+                        ._1wvRVD {
+                            width: 7.5rem;
+                            height: 2.8125rem;
+                        }
+                        .footer-vn-background {
+                            background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/49b5753902db445292818641f17183b0.png);
+                        }
+                        .footer-vn-vn_registered_red-png {
+                            background-size: 637.5% 477.77777777777777%;
+                            background-position: 99.53488372093024% 67.05882352941177%;
+                        }
+                        .footer-vn-vn_registered_red-png {
+                            background-size: 637.5% 477.77777777777777%;
+                            background-position: 99.53488372093024% 67.05882352941177%;
+                        }
+
+                        .footer-vn-vn_no_fake_item-png {
+                            width: 3rem;
+                            height: 3rem;
+                            background-size: 1593.75% 447.9166666666667%;
+                            background-position: 89.5397489539749% 27.54491017964072%;
+                        }
+                    }
+                }
+                ._1xU4be {
+                    margin-bottom: 1.5625rem;
+                }
+                ._1c2Tz5 {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+    }
+}

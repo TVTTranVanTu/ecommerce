@@ -3,6 +3,7 @@ import Header from './Components/Header';
 import Topbar from './Components/Topbar';
 import Home from './Layouts/Home';
 import './App.css';
+import Footer from './Components/Footer';
 function App() {
   return (
     <div className="App">
@@ -11,6 +12,7 @@ function App() {
         <Header />
       </div>
       <Home />
+      <Footer />
     </div>
   );
 }
