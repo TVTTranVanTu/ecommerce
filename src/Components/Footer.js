@@ -246,9 +246,9 @@ function Footer(props) {
                             </a>
                         </div>
                         <div className="_1c2Tz5 _1xU4be">Công ty TNHH Shopee</div>
-                        <div class="_1c2Tz5">Địa chỉ: Tầng 28, Tòa nhà trung tâm Lotte Hà Nội, 54 Liễu Giai, phường Cống Vị, Quận Ba Đình, Hà Nội. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn</div>
-                        <div class="_1c2Tz5">Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch &amp; Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</div>
-                        <div class="_1c2Tz5">&copy; 2015 - Bản quyền thuộc về Công ty TNHH Shopee</div>
+                        <div className="_1c2Tz5">Địa chỉ: Tầng 28, Tòa nhà trung tâm Lotte Hà Nội, 54 Liễu Giai, phường Cống Vị, Quận Ba Đình, Hà Nội. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn</div>
+                        <div className="_1c2Tz5">Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch &amp; Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</div>
+                        <div className="_1c2Tz5">&copy; 2015 - Bản quyền thuộc về Công ty TNHH Shopee</div>
                     </div>
                 </div>
             </div>

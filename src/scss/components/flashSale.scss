@@ -1,13 +1,28 @@
 .flash__sale {
+    box-sizing: border-box;
+    padding-top: 1.25rem;
     .container {
+        display: block;
         .flash-sale-title {
+            background: #fff;
+            height: 3.75rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 0 1.25rem;
+            display: flex;
+            align-items: center;
+            padding-bottom: 0;
+            width: 100%;
+            box-sizing: border-box;
             .flash-sale-contain {
-                height: 30px;
-                line-height: 1.875rem;
-                margin: 0 auto;
-                position: relative;
-                display: inline-flex;
-                pointer-events: all;
+                font-size: 1rem;
+                color: rgba(0, 0, 0, 0.54);
+                font-weight: 500;
+                flex: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                margin-right: 1.25rem;
+                text-transform: uppercase;
                 .flash-sale-icon {
                     padding-left: 16px;
                     width: 114px;
@@ -18,6 +33,60 @@
                     background: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/fb1088de81e42c4e538967ec12cb5caa.png)
                         50% no-repeat;
                     background-size: contain;
+                }
+            }
+            a {
+                text-decoration: none !important;
+                color: #ee4d2d;
+                .shopee-button-no-outline {
+                    text-transform: capitalize;
+                    color: #ee4d2d;
+                    background-color: transparent;
+                    padding: 0.3125rem 0.4375rem;
+                    outline: none;
+                    cursor: pointer;
+                    border: none;
+                    font-size: 0.875rem;
+                    font-weight: 300;
+                    line-height: 1;
+                    letter-spacing: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background-color 0.1s cubic-bezier(0.4, 0, 0.6, 1);
+                }
+
+                .shopee-svg-icon {
+                    display: inline-block;
+                    width: 1em;
+                    height: 1em;
+                    fill: currentColor;
+                    position: relative;
+                    color: #ee4d2d;
+                    font-size: 0.625rem;
+                }
+            }
+        }
+        .flash-sale-content {
+            position: relative;
+            .carousel-content {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                .carousel__item-list {
+                    display: flex;
+                    position: relative;
+                    height: 100%;
+                    padding: 0;
+                    margin: 0;
+                    box-sizing: border-box;
+                    transition: all 500ms ease 0s;
+                    .image-carousel__item {
+                        padding: 0px;
+                        width: 16.666666667%;
+                        list-style: none;
+                        float: left;
+                    }
                 }
             }
         }
