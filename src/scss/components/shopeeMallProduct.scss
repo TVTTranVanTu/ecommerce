@@ -1,0 +1,47 @@
+.ofs-carousel__item {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    padding: 10px;
+    border: none;
+    .ofs-carousel__shop-cover-image {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.8);
+        display: block;
+        background-position: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+        ._25_r8I {
+            position: relative;
+            .ofs-carousel__cover-image {
+                width: 100%;
+                padding-top: 120%;
+                background-position: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-size: contain;
+                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+                ._2GchKS {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .ofs-carousel__item__text {
+        position: absolute;
+        left: 14px;
+        bottom: 18px;
+        width: 172px;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        font-size: 18px;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        color: #d0011b;
+    }
+}

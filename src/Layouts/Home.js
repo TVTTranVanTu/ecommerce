@@ -2,6 +2,7 @@ import React from 'react';
 import BannersWrapper from '../Components/BannersWrapper';
 import Category from '../Components/Category';
 import FlashSale from '../Components/FlashSale';
+import ShopeeMall from '../Components/ShopeeMall';
 
 function Home(props) {
     return (
@@ -16,6 +17,7 @@ function Home(props) {
             </div>
             <Category />
             <FlashSale />
+            <ShopeeMall />
         </div>
     );
 }

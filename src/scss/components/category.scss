@@ -101,28 +101,28 @@
                     }
                 }
             }
-            .carousel-arrow--hint {
-                width: 25px;
-                height: 25px;
-                line-height: 25px;
-                margin-top: -12.5px;
-                background-color: rgb(255, 255, 255);
-            }
-            .carousel-arrow--prev {
-                left: 0px;
-            }
-            .carousel-arrow--next {
-                right: 0px;
-            }
-            .shopee-svg-icon {
-                height: 0.625rem;
-                width: 0.625rem;
-                color: rgba(0, 0, 0, 0.54);
-                fill: currentcolor;
-            }
-            svg:not(:root) {
-                overflow: hidden;
-            }
         }
     }
+}
+.carousel-arrow--hint {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    margin-top: -12.5px;
+    background-color: rgb(255, 255, 255);
+}
+.carousel-arrow--prev {
+    left: 0px;
+}
+.carousel-arrow--next {
+    right: 0px;
+}
+.shopee-svg-icon {
+    height: 0.625rem;
+    width: 0.625rem;
+    color: rgba(0, 0, 0, 0.54);
+    fill: currentcolor;
+}
+svg:not(:root) {
+    overflow: hidden;
 }

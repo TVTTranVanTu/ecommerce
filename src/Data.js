@@ -199,6 +199,102 @@ const Data = {
         {
 
         }
+    ],
+    ShopeeMall: [
+        {
+            image: "https://cf.shopee.vn/file/e4a82315f8b3a197cf82fae827916d7e_xhdpi",
+            title: "Deal xịn hết cỡ"
+        },
+        {
+            image: "https://cf.shopee.vn/file/51577add7b054f521f7237c2e853fcd6_xhdpi",
+            title: "Ưu đãi ra mắt"
+        },
+        {
+            image: "https://cf.shopee.vn/file/f57dead94b96c0610612702735842345_xhdpi",
+            title: "Rinh quà cực chất"
+        },
+        {
+            image: "https://cf.shopee.vn/file/bd416658f4f840ef1e8c1825c25606f4_xhdpi",
+            title: "Ưu đãi đến 34%"
+        },
+        {
+            image: "https://cf.shopee.vn/file/088e990bcce1a10156817163b138d776_xhdpi",
+            title: "Mua 1 được 2"
+        },
+        {
+            image: "https://cf.shopee.vn/file/0dc2dda566dbb502932c112fcfe0de14_xhdpi",
+            title: "Dưỡng da chuẩn Nhật"
+        },
+        {
+            image: "https://cf.shopee.vn/file/2d1e7c1bc7a5ab580b0a6b56c71f86c3_xhdpi",
+            title: "Đại tiệc deal 1K"
+        },
+        {
+            image: "https://cf.shopee.vn/file/5a52d8ff0d6e7032c4ca66a38e59bd34_xhdpi",
+            title: "Giảm đến 50%"
+        },
+        {
+            image: "https://cf.shopee.vn/file/a04fa1753f820475db4f018659d4bab4_xhdpi",
+            title: "Mua 1 tặng 1"
+        },
+        {
+            image: "https://cf.shopee.vn/file/f4139453fbc56f2182cbd3deac4a7822_xhdpi",
+            title: "Siêu deal đầy giỏ"
+        },
+        {
+            image: "https://cf.shopee.vn/file/8669cf868d40360dd2217af225159c59_xhdpi",
+            title: "Mua 1 tặng 1"
+        },
+        {
+            image: "https://cf.shopee.vn/file/7c7f589ccf9eb49867ad5253a5e05fe1_xhdpi",
+            title: "Quà hot 0đ"
+        },
+        {
+            image: "https://cf.shopee.vn/file/7267f240bf6cbe46c0b35659f8f438cf_xhdpi",
+            title: "Edini x Erosska ưu đãi độc quyền 50%"
+        },
+        {
+            image: "https://cf.shopee.vn/file/f8b08e7b7bbf1cf9cdedc37908048557_xhdpi",
+            title: "Da khỏe sạch mụn"
+        },
+        {
+            image: "https://cf.shopee.vn/file/e7e1273cdf3543a2fae56fd075ad405f_xhdpi",
+            title: "Săn voucher 100k"
+        },
+        {
+            image: "https://cf.shopee.vn/file/454e8b8b0eb01723b59182e99c8e4338_xhdpi",
+            title: "Giảm đến 60%"
+        },
+        {
+            image: "https://cf.shopee.vn/file/2065f12b28e8cd5ea180c260b0078fd4_xhdpi",
+            title: "Hệ lì tỏa sáng. Giảm đến 40%"
+        },
+        {
+            image: "https://cf.shopee.vn/file/81060d3fdec479441253a78c69f5bdbe_xhdpi",
+            title: "Giảm sâu đến 50%"
+        },
+        {
+            image: "https://cf.shopee.vn/file/1a67fdff0c90d6bbe64672140409b95e_xhdpi",
+            title: "Mua 1 tặng 4"
+        },
+        {
+            image: "https://cf.shopee.vn/file/a9f2f8838523225601d135b413dcbc40_xhdpi",
+            title: "Trao gửi yêu thương"
+        },
+        {
+            image: "https://cf.shopee.vn/file/f9c91949531f87e3c0877a94c03d07b8_xhdpi",
+            title: "Chỉ từ 1k"
+        },
+        {
+            image: "https://cf.shopee.vn/file/85442267985f7410723dae805717448c_xhdpi",
+            title: "Ưu đãi đến 40%"
+        },
+        {
+            image: "https://cf.shopee.vn/file/85641b6799307dd3faa6bf0660af08e5_xhdpi",
+            title: "Ưu đãi tớI 40%"
+        },
+
+
     ]
 };
 export default Data;
