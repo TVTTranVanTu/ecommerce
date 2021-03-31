@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Slider from "react-slick";
-import Data from "../Data";
+import { listShopeeMallProducts } from '../Actions/ShopeeMallAction';
 import ShopeeMallProduct from './ShopeeMallProduct';
 
 function ShopeeMall(props) {
-    let product = Data.ShopeeMall;
+    const dispatch = useDispatch();
+    const shopeeMallList = useSelector((state) => state.shopeeMallList);
+    const { loading, error, shopeeMalls } = shopeeMallList;
+    console.log(shopeeMalls);
     const [translate, setTranslate] = useState(0);
     const prev = () => {
         setTranslate(translate + 800);
@@ -21,6 +25,9 @@ function ShopeeMall(props) {
         autoplay: true,
         autoplaySpeed: 3000
     };
+    useEffect(() => {
+        dispatch(listShopeeMallProducts());
+    }, [dispatch])
     return (
         <div className="shopee-mail">
             <div className="container">
@@ -86,18 +93,18 @@ function ShopeeMall(props) {
                     <div className="shopee-mail__products">
                         <div className="carousel-content">
 
-                            <ul className="carousel__item-list" style={{ width: `${(Math.ceil(product.length / 2)) * 25}%`, transform: `translate(${translate}px,0px)` }}>
+                            <ul className="carousel__item-list" style={{ width: `${(Math.ceil(shopeeMalls.length / 2)) * 25}%`, transform: `translate(${translate}px,0px)` }}>
                                 {
-                                    product.slice(0, Math.ceil(product.length / 2)).map((item) => (
+                                    shopeeMalls.slice(0, Math.ceil(shopeeMalls.length / 2)).map((item) => (
                                         <li key={item._id} className="image-carousel__item" >
                                             <ShopeeMallProduct item={item} />
                                         </li>
                                     ))
                                 }
                             </ul>
-                            <ul className="carousel__item-list" style={{ width: `${product.length % 2 === 0 ? Math.ceil((product.length / 2) - 1) * 25 : Math.ceil((product.length / 2)) * 25}%`, transform: `translate(${translate}px,0px)` }}>
+                            <ul className="carousel__item-list" style={{ width: `${shopeeMalls.length % 2 === 0 ? Math.ceil((shopeeMalls.length / 2) - 1) * 25 : Math.ceil((shopeeMalls.length / 2)) * 25}%`, transform: `translate(${translate}px,0px)` }}>
                                 {
-                                    product.slice(Math.ceil(product.length / 2), product.length).map((item) => (
+                                    shopeeMalls.slice(Math.ceil(shopeeMalls.length / 2), shopeeMalls.length).map((item) => (
                                         <li key={item._id} className="image-carousel__item">
                                             <ShopeeMallProduct item={item} />
                                         </li>
@@ -122,7 +129,7 @@ function ShopeeMall(props) {
                                 </polygon>
                             </svg>
                         </div>
-                        <div className="carousel-arrow carousel-arrow--next carousel-arrow--hint" onClick={next} role="button" tabIndex="0" style={{ opacity: 1, visibility: `${translate <= (Math.ceil(product.length / 2) - 4) * -200 ? "hidden" : "visible"}`, transform: "translateX(calc(50% - 0px))" }}>
+                        <div className="carousel-arrow carousel-arrow--next carousel-arrow--hint" onClick={next} role="button" tabIndex="0" style={{ opacity: 1, visibility: `${translate <= (Math.ceil(shopeeMalls.length / 2) - 4) * -200 ? "hidden" : "visible"}`, transform: "translateX(calc(50% - 0px))" }}>
                             <svg enableBackground="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" className="shopee-svg-icon icon-arrow-right-bold">
                                 <polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
                         </div>

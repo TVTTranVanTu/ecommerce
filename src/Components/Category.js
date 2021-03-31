@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import Data from '../Data.js';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { listCategory } from '../Actions/CategoryAction.js';
 import CategoryItem from './Category-item.js';
 function Category(props) {
-    let product = Data.products;
+    const dispatch = useDispatch();
+    const listCategorys = useSelector((state) => state.categoryList);
+    const { loading, error, categorys } = listCategorys;
     const [translate, setTranslate] = useState(0);
     const prev = () => {
         setTranslate(translate + 360);
@@ -10,7 +13,9 @@ function Category(props) {
     const next = () => {
         setTranslate(translate - 360);
     }
-
+    useEffect(() => {
+        dispatch(listCategory());
+    }, [dispatch])
     return (
         <div className="category">
             <div className="container">
@@ -19,18 +24,18 @@ function Category(props) {
                 </div>
                 <div className="category__content">
                     <div className="carousel-content">
-                        <ul className="carousel__item-list" style={{ width: `${Math.ceil(product.length / 2) * 10}%`, transform: `translate(${translate}px,0px)` }}>
+                        <ul className="carousel__item-list" style={{ width: `${Math.ceil(categorys.length / 2) * 10}%`, transform: `translate(${translate}px,0px)` }}>
                             {
-                                product.slice(0, Math.ceil(product.length / 2)).map((item) => (
+                                categorys.slice(0, Math.ceil(categorys.length / 2)).map((item) => (
                                     <li key={item._id} className="image-carousel__item">
                                         <CategoryItem item={item} />
                                     </li>
                                 ))
                             }
                         </ul>
-                        <ul className="carousel__item-list" style={{ width: `${product.length % 2 === 0 ? Math.ceil((product.length / 2)) * 10 : Math.ceil((product.length / 2) - 1) * 10}%`, transform: `translate(${translate}px,0px)` }}>
+                        <ul className="carousel__item-list" style={{ width: `${categorys.length % 2 === 0 ? Math.ceil((categorys.length / 2)) * 10 : Math.ceil((categorys.length / 2) - 1) * 10}%`, transform: `translate(${translate}px,0px)` }}>
                             {
-                                product.slice(Math.ceil(product.length / 2), product.length).map((item) => (
+                                categorys.slice(Math.ceil(categorys.length / 2), categorys.length).map((item) => (
                                     <li key={item._id} className="image-carousel__item">
                                         <CategoryItem item={item} />
                                     </li>
@@ -45,7 +50,7 @@ function Category(props) {
                             </polygon>
                         </svg>
                     </div>
-                    <div className="carousel-arrow carousel-arrow--next carousel-arrow--hint" onClick={next} role="button" tabIndex="0" style={{ opacity: 1, visibility: `${translate === (Math.ceil(product.length / 2) - 10) * -120 ? "hidden" : "visible"}`, transform: "translateX(calc(50% - 0px))" }}>
+                    <div className="carousel-arrow carousel-arrow--next carousel-arrow--hint" onClick={next} role="button" tabIndex="0" style={{ opacity: 1, visibility: `${translate === (Math.ceil(categorys.length / 2) - 10) * -120 ? "hidden" : "visible"}`, transform: "translateX(calc(50% - 0px))" }}>
                         <svg enableBackground="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" className="shopee-svg-icon icon-arrow-right-bold">
                             <polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
                     </div>

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import Data from "../Data";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { listFlashSale } from '../Actions/FlashSaleAction';
 import FlashSaleProduct from './FlashSaleProduct';
 
 function FlashSale(props) {
-    let product = Data.flashSale;
+    const dispatch = useDispatch();
+    const flashSaleList = useSelector((state) => state.flashSaleList);
+    const { loading, error, flashSales } = flashSaleList;
     const [translate, setTranslate] = useState(0);
     const prev = () => {
         setTranslate(translate + 1000);
@@ -11,6 +14,9 @@ function FlashSale(props) {
     const next = () => {
         setTranslate(translate - 1000);
     }
+    useEffect(() => {
+        dispatch(listFlashSale());
+    }, [dispatch])
     return (
         <div className="flash__sale">
             <div className="container">
@@ -31,9 +37,9 @@ function FlashSale(props) {
                 </div>
                 <div className="flash-sale-content">
                     <div className="carousel-content">
-                        <ul className="carousel__item-list" style={{ width: `${(product.length) * 16.666666667}%`, transform: `translate(${translate}px,0px)` }}>
+                        <ul className="carousel__item-list" style={{ width: `${(flashSales.length) * 16.666666667}%`, transform: `translate(${translate}px,0px)` }}>
                             {
-                                product.map((item) => (
+                                flashSales.map((item) => (
                                     <li key={item._id} className="image-carousel__item" >
                                         <FlashSaleProduct item={item} />
                                     </li>
@@ -47,7 +53,7 @@ function FlashSale(props) {
                             </polygon>
                         </svg>
                     </div>
-                    <div className="carousel-arrow carousel-arrow--next carousel-arrow--hint" onClick={next} role="button" tabIndex="0" style={{ opacity: 1, visibility: `${translate <= ((product.length) * -200) + 1200 ? "hidden" : "visible"}`, transform: "translateX(calc(50% - 0px))" }}>
+                    <div className="carousel-arrow carousel-arrow--next carousel-arrow--hint" onClick={next} role="button" tabIndex="0" style={{ opacity: 1, visibility: `${translate <= ((flashSales.length) * -200) + 1200 ? "hidden" : "visible"}`, transform: "translateX(calc(50% - 0px))" }}>
                         <svg enableBackground="new 0 0 13 21" viewBox="0 0 13 21" x="0" y="0" className="shopee-svg-icon icon-arrow-right-bold">
                             <polygon points="11.1 9.9 2.1 .9 -.1 3.1 7.9 11 -.1 18.9 2.1 21 11.1 12 12.1 11"></polygon></svg>
                     </div>

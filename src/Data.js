@@ -1,5 +1,5 @@
 const Data = {
-    products: [
+    categorys: [
         {
             _id: '1',
             name: 'Thời trang nam',
