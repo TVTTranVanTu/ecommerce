@@ -8,7 +8,6 @@ function ShopeeMall(props) {
     const dispatch = useDispatch();
     const shopeeMallList = useSelector((state) => state.shopeeMallList);
     const { loading, error, shopeeMalls } = shopeeMallList;
-    console.log(shopeeMalls);
     const [translate, setTranslate] = useState(0);
     const prev = () => {
         setTranslate(translate + 800);

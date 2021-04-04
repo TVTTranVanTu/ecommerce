@@ -42,125 +42,125 @@
                     }
                 }
             }
-            .flash-sale-item-card__lower-wrapper {
-                padding: 0 15px 15px;
-                display: flex;
-                align-items: flex-end;
-                .flash-sale-item-card__lower-left {
-                    flex: 1 100%;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    .flash-sale-item-card__current-price {
-                        font-size: 14px;
-                        text-align: center;
-                        color: #ee4d2d;
-                        font-weight: 400;
-                        .item-price-dollar-sign {
-                            font-size: 100%;
-                        }
-                        .item-price-number {
-                            font-size: 155%;
-                            max-width: 130px;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                        }
-                    }
-                    .flash-sale-progress-bar__wrapper {
-                        padding: 0 7px;
-                        .flash-sale-progress-bar {
-                            height: 16px;
-                            background-size: cover;
-                            position: relative;
-                            border-radius: 8px;
-                            .flash-sale-progress-bar__text {
-                                text-transform: uppercase;
-                                font-size: 12px;
-                                color: #fff;
-                                z-index: 2;
-                                position: absolute;
-                                bottom: 0;
-                                width: 100%;
-                                text-align: center;
-                            }
-                            .flash-sale-progress-bar__complement-wrapper {
-                                width: 100%;
-                                background: transparent;
-                                overflow: hidden;
-                                bottom: 0;
-                                right: 0;
-                                position: absolute;
-                                z-index: 1;
-                                height: 16px;
-                                border-radius: 8px;
-                                .flash-sale-progress-bar__complement-sizer {
-                                    background: #fff;
-                                    float: right;
-                                    position: relative;
-                                    height: 18px;
-                                    .flash-sale-progress-bar__complement-color {
-                                        position: absolute;
-                                        width: 100%;
-                                        height: 100%;
-                                        background: #ffbda6;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .shopee-item-card__badge-wrapper {
-                    transform: scale(1.4);
-                    padding: 7px 8px;
-                    font-weight: 400;
+        }
+    }
+}
+.flash-sale-item-card__lower-wrapper {
+    padding: 0 15px 15px;
+    display: flex;
+    align-items: flex-end;
+    .flash-sale-item-card__lower-left {
+        flex: 1 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        .flash-sale-item-card__current-price {
+            font-size: 14px;
+            text-align: center;
+            color: #ee4d2d;
+            font-weight: 400;
+            .item-price-dollar-sign {
+                font-size: 100%;
+            }
+            .item-price-number {
+                font-size: 155%;
+                max-width: 130px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        .flash-sale-progress-bar__wrapper {
+            padding: 0 7px;
+            .flash-sale-progress-bar {
+                height: 16px;
+                background-size: cover;
+                position: relative;
+                border-radius: 8px;
+                .flash-sale-progress-bar__text {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    color: #fff;
+                    z-index: 2;
                     position: absolute;
-                    top: 0;
+                    bottom: 0;
+                    width: 100%;
+                    text-align: center;
+                }
+                .flash-sale-progress-bar__complement-wrapper {
+                    width: 100%;
+                    background: transparent;
+                    overflow: hidden;
+                    bottom: 0;
                     right: 0;
-                    z-index: 3;
-                    .shopee-badge {
+                    position: absolute;
+                    z-index: 1;
+                    height: 16px;
+                    border-radius: 8px;
+                    .flash-sale-progress-bar__complement-sizer {
+                        background: #fff;
                         float: right;
-                        margin-left: 0.3125rem;
-                    }
-                    ._2xY8te {
-                        background-color: rgba(255, 212, 36, 0.9);
-                    }
-                    ._36vTKx {
-                        width: 36px;
-                        height: 32px;
-                    }
-                    ._3iRehQ {
-                        display: inline-block;
-                        box-sizing: border-box;
                         position: relative;
-                        padding: 4px 2px 3px;
-                        font-weight: 700;
-                    }
-                    ._2TDZGE {
-                        display: flex;
-                        flex-direction: column;
-                        text-align: center;
-                        position: relative;
-                        font-weight: 400;
-                        line-height: 0.8125rem;
-                        color: rgb(238, 77, 45);
-                        text-transform: uppercase;
-                        font-size: 0.75rem;
-                    }
-                    ._17XqBU {
-                        color: rgb(255, 255, 255);
-                    }
-                    ._2xY8te::after {
-                        content: "";
-                        width: 0px;
-                        height: 0px;
-                        left: 0px;
-                        bottom: -4px;
-                        position: absolute;
-                        border-color: transparent rgba(255, 212, 36, 0.9);
-                        border-style: solid;
-                        border-width: 0px 18px 4px;
+                        height: 18px;
+                        .flash-sale-progress-bar__complement-color {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background: #ffbda6;
+                        }
                     }
                 }
             }
         }
+    }
+}
+.shopee-item-card__badge-wrapper {
+    transform: scale(1.4);
+    padding: 7px 8px;
+    font-weight: 400;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    .shopee-badge {
+        float: right;
+        margin-left: 0.3125rem;
+    }
+    ._2xY8te {
+        background-color: rgba(255, 212, 36, 0.9);
+    }
+    ._36vTKx {
+        width: 36px;
+        height: 32px;
+    }
+    ._3iRehQ {
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        padding: 4px 2px 3px;
+        font-weight: 700;
+    }
+    ._2TDZGE {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        font-weight: 400;
+        line-height: 0.8125rem;
+        color: rgb(238, 77, 45);
+        text-transform: uppercase;
+        font-size: 0.75rem;
+    }
+    ._17XqBU {
+        color: rgb(255, 255, 255);
+    }
+    ._2xY8te::after {
+        content: "";
+        width: 0px;
+        height: 0px;
+        left: 0px;
+        bottom: -4px;
+        position: absolute;
+        border-color: transparent rgba(255, 212, 36, 0.9);
+        border-style: solid;
+        border-width: 0px 18px 4px;
     }
 }

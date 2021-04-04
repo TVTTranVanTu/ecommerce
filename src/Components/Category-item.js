@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function CategoryItem(props) {
     const { item } = props;
-
+    let link = item.name.replace(/\s/g, '-');
     return (
         <div className="home-category-list__group">
-            <a href="#" className="home-category-list__category-grid">
+            <Link to={link} className="home-category-list__category-grid">
                 <div className="content">
                     <div className="image">
                         <img src={item.image}></img>
@@ -15,7 +16,7 @@ function CategoryItem(props) {
                     </div>
                 </div>
 
-            </a>
+            </Link>
 
         </div>
     );
