@@ -23,6 +23,9 @@ a {
     text-decoration: none;
     background-color: transparent;
 }
+a:visited{
+    color: rgba(0,0,0,.8);
+}
 .btn {
     overflow: hidden;
     display: -webkit-box;

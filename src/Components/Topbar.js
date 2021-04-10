@@ -56,8 +56,11 @@ function Topbar(props) {
                                         <div className="account__content">
                                             <div className="triangle-up"></div>
                                             <div className="account__infor bd__bt">
+                                            <Link to="account">
                                                 <i className="fas fa-user-circle"></i>
                                                 <span>Tài khoản của tôi</span>
+                                            </Link>
+
                                             </div>
                                             <div className="history bd__bt">
                                                 <i className="fas fa-history"></i>

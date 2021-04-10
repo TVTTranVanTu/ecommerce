@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SingIn from './Layouts/SignIn';
 import Register from './Layouts/Register';
 import FilterCategory from './Layouts/FilterCategory';
+import UserProfile from './Layouts/UserProfile';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/signin" component={SingIn}></Route>
           <Route path="/register" component={Register}></Route>
           <Route path="/thời-trang-nam" component={FilterCategory}></Route>
+          <Route path="/account" component={UserProfile}></Route>
         </div>
         <Footer />
       </div>

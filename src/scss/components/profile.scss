@@ -1,0 +1,249 @@
+.my-account-section {
+    box-sizing: border-box;
+    font-size: 0.9375rem;
+    flex-grow: 1;
+    width: 980px;
+    margin-left: 1.6875rem;
+    min-width: 0;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.13);
+    border-radius: 0.125rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px 20px;
+    background: #fff;
+    overflow: visible;
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+        padding: 1px 6px;
+    }
+    input[type="text"]::placeholder {
+        color: #333;
+    }
+    .my-account-section__header {
+        -webkit-box-align: center;
+        align-items: center;
+        border-bottom: 1px solid #efefef;
+        padding: 22px 0;
+        height: 80px;
+        box-sizing: border-box;
+        .my-account-section__header-left {
+            -webkit-box-flex: 1;
+            flex: 1;
+            .my-account-section__header-title {
+                font-size: 1.125rem;
+                font-weight: 500;
+                line-height: 1.5rem;
+                color: #333;
+                text-transform: capitalize;
+            }
+            .my-account-section__header-subtitle {
+                line-height: 1.0625rem;
+                color: #555;
+                margin-top: 3px;
+            }
+        }
+    }
+    .my-account-profile {
+        display: flex;
+        -webkit-box-align: start;
+        align-items: flex-start;
+        padding-top: 30px;
+        .my-account-profile__left {
+            -webkit-box-flex: 1;
+            flex: 1;
+            padding-right: 50px;
+            .input-with-label {
+                margin-bottom: 30px;
+                .input-with-label__wrapper {
+                    display: flex;
+                    -webkit-box-pack: end;
+                    justify-content: flex-end;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    .input-with-label__label {
+                        width: 20%;
+                        text-align: right;
+                        color: rgba(85, 85, 85, 0.8);
+                        text-transform: capitalize;
+                        overflow: hidden;
+                    }
+                    .input-with-label__content {
+                        width: 80%;
+                        box-sizing: border-box;
+                        padding-left: 1.25rem;
+                        .my-account__inline-container {
+                            display: flex;
+                            -webkit-box-align: center;
+                            align-items: center;
+                            .my-account__input-text {
+                                font-size: 14px;
+                                color: #333;
+                            }
+                        }
+                        .input-with-validator {
+                            display: flex;
+                            -webkit-box-align: center;
+                            align-items: center;
+                            background-color: #fff;
+                            position: relative;
+                            border-radius: 2px;
+                            border: 1px solid rgba(0, 0, 0, 0.14);
+                            box-sizing: border-box;
+                            box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.02);
+                            color: #222;
+                            height: 40px;
+                            padding: 10px;
+                            transition: border-color 0.1s ease;
+                        }
+                        .my-account__inline-container {
+                            display: flex;
+                            -webkit-box-align: center;
+                            align-items: center;
+                            .my-account__input-text {
+                                font-size: 14px;
+                                color: #333;
+                            }
+                            .my-account__no-background-button {
+                                border: none;
+                                outline: none;
+                                background: none;
+                                color: #05a;
+                                font-size: 13px;
+                            }
+                            .my-account-profile__change-button {
+                                text-transform: capitalize;
+                                font-weight: 400;
+                                text-decoration: underline;
+                            }
+                        }
+                        .my-account-profile__gender {
+                            display: flex;
+                            .radio {
+                                display: inline-flex;
+                                align-items: center;
+                                cursor: pointer;
+                                margin-right: 10px;
+                            }
+                            .radio__input {
+                                display: none;
+                            }
+                            .radio__radio {
+                                width: 18px;
+                                height: 18px;
+                                border: 2px solid rgba(0, 0, 0, 0.26);
+                                border-radius: 50%;
+                                margin-right: 10px;
+                                box-sizing: border-box;
+                                padding: 1px;
+                            }
+                            .radio__radio::after {
+                                content: "";
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                background: #ee4d2d;
+                                border-radius: 50%;
+                                transform: scale(0);
+                                transition: transform 0.15s;
+                            }
+                            .radio__input:checked + .radio__radio::after {
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .my-account-profile__right {
+            width: 17.5rem;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            overflow: hidden;
+            border-left: 1px solid #efefef;
+            .avatar-uploader {
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                flex-direction: column;
+                -webkit-box-align: center;
+                align-items: center;
+                .avatar-uploader__avatar {
+                    height: 100px;
+                    width: 100px;
+                    margin: 20px 0;
+                    position: relative;
+                    display: flex;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    -webkit-box-pack: center;
+                    justify-content: center;
+                    .avatar-uploader__avatar-image {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        background-position: 50%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        cursor: pointer;
+                        background-image: url(https://cf.shopee.vn/file/c0461876e0a89c129b9a8fd5cffcb37d_tn);
+                    }
+                }
+                .avatar-uploader__file-input {
+                    display: none;
+                    line-height: normal;
+                }
+                .btn {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    flex-direction: column;
+                    font-size: 14px;
+                    box-sizing: border-box;
+                    border-radius: 2px;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    -webkit-box-pack: center;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    outline: 0;
+                    cursor: pointer;
+                }
+                .btn-light {
+                    background: #fff;
+                    color: #555;
+                    border: 1px solid rgba(0, 0, 0, 0.09);
+                    box-shadow: 0 1px 1px 0 rgba(0,0,0, .03);
+                }
+                .btn--m {
+                    height: 40px;
+                    padding: 0 20px;
+                    min-width: 70px;
+                    max-width: 220px;
+                }
+                .btn--inline {
+                    display: inline-flex;
+                }
+                .avatar-uploader__text-container {
+                    margin-top: 12px;
+                    display: block;
+                    .avatar-uploader__text {
+                        color: #999;
+                        font-size: 0.875rem;
+                        line-height: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}
