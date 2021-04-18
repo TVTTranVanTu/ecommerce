@@ -4,11 +4,13 @@ import Topbar from './Components/Topbar';
 import Home from './Layouts/Home';
 import './App.css';
 import Footer from './Components/Footer';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 import SingIn from './Layouts/SignIn';
 import Register from './Layouts/Register';
-import FilterCategory from './Layouts/FilterCategory';
-
+import ProductScreen from './Layouts/ProductScreen';
+import PageLayout from './Layouts/PageLayout';
+import UserProfile from './Layouts/UserProfile';
+import RouterCategory from './Routers/routerCategory';
 
 function App() {
   return (
@@ -19,10 +21,46 @@ function App() {
           <Header />
         </div>
         <div>
-          <Route exact path="/" component={Home}></Route>
-          <Route path="/signin" component={SingIn}></Route>
-          <Route path="/register" component={Register}></Route>
-          <Route path="/thời-trang-nam" component={FilterCategory}></Route>
+          <Switch>
+            <Route
+              exact path="/"
+              render={(props) => { return <PageLayout content={<Home {...props} />} /> }} />
+            <Route
+              exact
+              path="/signin"
+              render={(props) => { return <PageLayout content={<SingIn {...props} />} /> }} />
+            <Route
+              exact
+              path="/register"
+              render={(props) => { return <PageLayout content={<Register {...props} />} /> }} />
+            {/* {
+              listPathCategory.map((item, index) => (
+                <Route
+                  key={index}
+                  exact
+                  path={`/${item}`}
+                  render={(props) => { return <PageLayout content={<FilterCategory {...props} />} /> }} />
+              ))
+            } */}
+            <Route
+              exact
+              path="/:flug/:id"
+              render={(props) => { return <RouterCategory  {...props} /> }} />
+
+            {/* <Route
+              exact
+              path="/Thời-trang-nam"
+              render={(props) => { return <PageLayout content={<FilterCategory {...props} />} /> }} /> */}
+
+            <Route
+              exact
+              path="/product/:id"
+              render={(props) => { return <PageLayout content={<ProductScreen {...props} />} /> }} />
+            <Route
+              exact
+              path="/account"
+              render={(props) => { return <PageLayout content={<UserProfile {...props} />} /> }} />
+          </Switch>
         </div>
         <Footer />
       </div>

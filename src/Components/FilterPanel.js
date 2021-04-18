@@ -229,11 +229,11 @@ function FilterPanel(props) {
                                 <div className="shopee-filter shopee-checkbox-filter">
                                     <div className="shopee-checkbox">
                                         <label className="shopee-checkbox__control">
-                                            <input type="checkbox" name="" value="Vĩnh Phúc" />
+                                            <input type="checkbox" name="" value="Hải phòng" />
                                             <div className="shopee-checkbox__box">
                                                 <i>&ensp;</i>
                                             </div>
-                                            <span className="shopee-checkbox__label">Vĩnh Phúc</span>
+                                            <span className="shopee-checkbox__label">Hải phòng</span>
                                         </label>
                                     </div>
                                 </div>

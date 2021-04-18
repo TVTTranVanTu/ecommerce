@@ -150,4 +150,10 @@
             }
         }
     }
+
+    ul li a:hover,
+    ul li span:hover,
+    ul li a:active {
+        color: #ff8917 !important;
+    }
 }

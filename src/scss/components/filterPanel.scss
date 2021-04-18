@@ -1,10 +1,9 @@
 .filter__panel {
     flex: 0 0 11.875rem;
-    min-width: 0;
     margin: 0 1.25rem 1.25rem 0;
     box-sizing: border-box;
     position: relative;
-    top: 0;
+    place-self: flex-start;
     .folding-items__toggle {
         cursor: pointer;
         display: flex;

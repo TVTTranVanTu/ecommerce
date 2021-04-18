@@ -3,11 +3,12 @@ import FilterPanel from '../Components/FilterPanel';
 import FilterResult from '../Components/FilterResult';
 
 function FilterCategory(props) {
+    const id = props.match.params.id
     return (
         <div className="filter__category">
             <div className="container">
                 <FilterPanel />
-                <FilterResult />
+                <FilterResult path={props} id={id} />
             </div>
         </div>
     );

@@ -132,4 +132,73 @@
             padding-left: 0.3125rem;
         }
     }
+    .pagination {
+        margin-top: 2.5rem;
+        .shopee-page-controller {
+            margin: 1.25rem 0 3.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .shopee-icon-button--left {
+                text-align: right;
+                margin-right: 0.9375rem;
+            }
+            .shopee-icon-button {
+                color: rgba(0, 0, 0, 0.4);
+                min-width: 2.5rem;
+                height: 1.875rem;
+                border: none;
+            }
+            .shopee-button-no-outline {
+                padding: 0px;
+                min-width: 2.5rem;
+                text-align: center;
+                height: 1.875rem;
+                font-size: 1.25rem;
+                margin-left: 0.9375rem;
+                cursor: pointer;
+                margin-right: 0.9375rem;
+            }
+            .shopee-button-no-outline--non-click {
+                cursor: auto;
+            }
+            .shopee-icon-button--right {
+                text-align: left;
+                margin-left: 0.9375rem;
+            }
+            .shopee-button-solid {
+                color: #fff;
+                padding: 0px;
+                width: 1.875rem;
+                text-align: center;
+                height: 1.875rem;
+                font-size: 1.25rem;
+                margin-left: 0.9375rem;
+                margin-right: 0.9375rem;
+                margin-top: 0 !important;
+            }
+            .shopee-button-solid {
+                outline: none;
+                cursor: pointer;
+                border: none;
+                font-size: 0.875rem;
+                font-weight: 300;
+                line-height: 1;
+                letter-spacing: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color 0.1s cubic-bezier(0.4, 0, 0.6, 1);
+                position: relative;
+                background: rgba(0, 0, 0, 0.54);
+                color: #fff;
+                transition: opacity 0.2s ease;
+                border-radius: 2px;
+                user-select: none;
+            }
+            .shopee-button-solid--primary {
+                background: #ee4d2d;
+            }
+        }
+    }
 }

@@ -23,6 +23,9 @@ a {
     text-decoration: none;
     background-color: transparent;
 }
+a:visited {
+    color: rgba(0, 0, 0, 0.8);
+}
 .btn {
     overflow: hidden;
     display: -webkit-box;
@@ -85,13 +88,6 @@ button {
     background: 0 0;
     border: none;
     padding: 0;
-}
-
-ul li a:hover,
-ul li span:hover,
-ul li a:active {
-    color: #ff8917 !important;
-    border-color: #ff8917 !important;
 }
 
 .mb15 {
@@ -495,4 +491,33 @@ h2 {
 }
 .product__content {
     box-shadow: 0 0.0625rem 0.125rem 0 rgb(0 0 0 / 10%);
+}
+
+.recommend-title {
+    width: 100%;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    background-color: #fff;
+}
+
+.btn-light--link {
+    color: #555;
+}
+.btn-light {
+    background: #fff;
+    color: #555;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
+}
+.btn--m {
+    height: 40px;
+    padding: 0 20px;
+    min-width: 70px;
+    max-width: 220px;
+}
+.btn--inline {
+    display: inline-flex;
+}
+
+.danger {
+    color: #a02020;
 }

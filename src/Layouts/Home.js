@@ -2,6 +2,7 @@ import React from 'react';
 import BannersWrapper from '../Components/BannersWrapper';
 import Category from '../Components/Category';
 import FlashSale from '../Components/FlashSale';
+import RecommendProducts from '../Components/RecommendProducts';
 import ShopeeMall from '../Components/ShopeeMall';
 
 function Home(props) {
@@ -18,6 +19,7 @@ function Home(props) {
             <Category />
             <FlashSale />
             <ShopeeMall />
+            <RecommendProducts />
         </div>
     );
 }

@@ -1,0 +1,17 @@
+.checkout__steps {
+    color: #c0c0c0;
+    flex: 1;
+    display: flex;
+    margin: 40px 0;
+    .step {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        i {
+            margin: 0 10px;
+        }
+    }
+    .active {
+        color: #ff8917;
+        border-bottom: 1px solid #ff8917;
+    }
+}

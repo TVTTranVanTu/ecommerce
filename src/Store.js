@@ -1,7 +1,8 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thuck from 'redux-thunk';
-import { categoryListReducer } from './Reducer/CategorysReducer';
+import { categoryListReducer, productCategoryReducer } from './Reducer/CategorysReducer';
 import { flashSaleListReducer } from './Reducer/FlashSaleReducer';
+import { listRecommendProductReducer } from './Reducer/RecommendProductsReducer';
 import { shopeeMallListReducer } from './Reducer/ShopeeMallReducer';
 import { userSigninReducer } from './Reducer/UserReducer';
 
@@ -15,6 +16,8 @@ const reducer = combineReducers(
         flashSaleList: flashSaleListReducer,
         shopeeMallList: shopeeMallListReducer,
         userSignin: userSigninReducer,
+        productsCategory: productCategoryReducer,
+        recommendProductsList: listRecommendProductReducer,
     }
 )
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
