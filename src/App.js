@@ -11,6 +11,8 @@ import ProductScreen from './Layouts/ProductScreen';
 import PageLayout from './Layouts/PageLayout';
 import UserProfile from './Layouts/UserProfile';
 import RouterCategory from './Routers/routerCategory';
+import Product from './Components/Product';
+import RouterProduct from './Routers/routerProduct';
 
 function App() {
   return (
@@ -33,28 +35,14 @@ function App() {
               exact
               path="/register"
               render={(props) => { return <PageLayout content={<Register {...props} />} /> }} />
-            {/* {
-              listPathCategory.map((item, index) => (
-                <Route
-                  key={index}
-                  exact
-                  path={`/${item}`}
-                  render={(props) => { return <PageLayout content={<FilterCategory {...props} />} /> }} />
-              ))
-            } */}
             <Route
               exact
-              path="/:flug/:id"
+              path="/:flug.cat:id"
               render={(props) => { return <RouterCategory  {...props} /> }} />
 
-            {/* <Route
-              exact
-              path="/Thời-trang-nam"
-              render={(props) => { return <PageLayout content={<FilterCategory {...props} />} /> }} /> */}
-
             <Route
               exact
-              path="/product/:id"
+              path="/:name.:id"
               render={(props) => { return <PageLayout content={<ProductScreen {...props} />} /> }} />
             <Route
               exact

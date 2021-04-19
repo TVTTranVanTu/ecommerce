@@ -8,26 +8,10 @@ import Product from './Product';
 
 function FilterResult(props) {
     const dispatch = useDispatch();
-    // let id;
-    // const productId = props.match.params.id;
-    // console.log(productId);
+
     const productsCategory = useSelector((state) => state.productsCategory);
     const { loading, error, listProducts } = productsCategory;
 
-    // const categoryList = useSelector((state) => state.categoryList);
-    // const { categorys } = categoryList;
-
-    // const { path } = props;
-    // const pathName = path.match.path.replace(/\s/g, '-');
-    // categorys.map((item) => {
-    //     if (pathName === `/${item.name.replace(/\s/g, '-')}`) {
-    //         id = item.id;
-    //     }
-    // });
-    // console.log(id);
-    // const [test, setTest] = useState(() => {
-
-    // })
     const { id } = props;
     const [pagination, setPagination] = useState({
         _page: 1,
@@ -119,7 +103,7 @@ function FilterResult(props) {
                                 <div className="shopee-search-item-result__items">
                                     {
                                         listProducts.map((item) => (
-                                            <Product key={item._id} item={item} />
+                                            <Product key={item.id} item={item} />
                                         ))
                                     }
                                 </div>

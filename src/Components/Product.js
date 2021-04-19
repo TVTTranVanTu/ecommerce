@@ -4,12 +4,14 @@ import Rating from './Rating';
 
 function Product(props) {
     const { item } = props;
+    const id = item.id;
+    const name = item.postTitle.replace(/\s/g, '-');
     return (
         <div className="shopee-search-item-result__item">
-            <Link to={`/${item._id}`}>
+            <Link to={`/${name}.${id}`}>
                 <div className="product__content">
                     <div className="product__image">
-                        <img className="image" alt="img" src={item.image}></img>
+                        <img className="image" alt="img" src={item.productThumbnail}></img>
                     </div>
                     {item.discount > 0 ? (
                         <div className="shopee-item-card__badge-wrapper">
@@ -24,21 +26,21 @@ function Product(props) {
 
                     <div className="product__info">
                         <div className="product__title">
-                            <div className="product__name">{item.title}</div>
+                            <div className="product__name">{item.postTitle}</div>
                         </div>
                         <div className="price">
                             <span className="_3f1XxR">₫</span>
-                            <span className="_29R_un">{item.price}</span>
+                            <span className="_29R_un">{item.productPrice}</span>
                         </div>
                         <div className="shopee-rating">
                             <Rating item={item} />
                             <div className="go5yPW">Đã bán
                             {
-                                    item.sale < 1000 ? `${item.sale}` : `${item.sale / 1000}k`
+                                    item.soldQuantity < 1000 ? `${item.soldQuantity}` : `${item.soldQuantity / 1000}k`
                                 }
                             </div>
                         </div>
-                        <div className="_2CWevj">{item.location}</div>
+                        <div className="_2CWevj">{item.address}</div>
                     </div>
                 </div>
             </Link>
