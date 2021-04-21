@@ -13,7 +13,7 @@ function Topbar(props) {
         <div className="topbar">
             <div className="container">
                 <div className="topbar__left">
-                    <Link to="/kenhnguoiban" className="space">Kênh người bán</Link>
+                    <Link to="/seller-login" className="space">Kênh người bán</Link>
                     <Link to="/taiungdung" className="space">Tải ứng dụng</Link>
                     <div className="space space-end">Kết nối</div>
                     <div className="social">

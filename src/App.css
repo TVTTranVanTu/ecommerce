@@ -521,3 +521,7 @@ h2 {
 .danger {
     color: #a02020;
 }
+
+.signin-panel {
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+}

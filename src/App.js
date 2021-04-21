@@ -11,6 +11,7 @@ import ProductScreen from './Layouts/ProductScreen';
 import PageLayout from './Layouts/PageLayout';
 import UserProfile from './Layouts/UserProfile';
 import RouterCategory from './Routers/routerCategory';
+import SellerLogin from './Layouts/SellerLogin';
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
               exact
               path="/register"
               render={(props) => { return <PageLayout content={<Register {...props} />} /> }} />
+            <Route
+              exact
+              path="/seller-login"
+              render={(props) => { return <PageLayout content={<SellerLogin {...props} />} /> }} />
             <Route
               exact
               path="/:flug.cat:id"
