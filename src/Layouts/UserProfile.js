@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
-import Profile from '../Components/Profile';
-import UserPhone from '../Components/UserPhone';
+import Profile from '../Components/accountInfo/Profile';
+import UserPhone from '../Components/accountInfo/UserPhone';
 
 function UserProfile(props) {
 

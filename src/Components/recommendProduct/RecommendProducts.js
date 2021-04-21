@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listRecommendProducts } from '../Actions/RecommendProductsAction';
-import Product from './Product';
+import { listRecommendProducts } from '../../Actions/RecommendProductsAction';
+import Product from '../product/Product';
 
 function RecommendProducts(props) {
     const dispatch = useDispatch();

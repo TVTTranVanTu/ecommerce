@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from "react-slick";
-import { listShopeeMallProducts } from '../Actions/ShopeeMallAction';
+import { listShopeeMallProducts } from '../../Actions/ShopeeMallAction';
 import ShopeeMallProduct from './ShopeeMallProduct';
 
 function ShopeeMall(props) {

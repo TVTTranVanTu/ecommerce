@@ -1,9 +1,9 @@
 import React from 'react';
-import BannersWrapper from '../Components/BannersWrapper';
-import Category from '../Components/Category';
-import FlashSale from '../Components/FlashSale';
-import RecommendProducts from '../Components/RecommendProducts';
-import ShopeeMall from '../Components/ShopeeMall';
+import Category from '../Components/category/Category';
+import FlashSale from '../Components/flashSale/FlashSale';
+import RecommendProducts from '../Components/recommendProduct/RecommendProducts';
+import ShopeeMall from '../Components/shopeeMail/ShopeeMall';
+import BannersWrapper from '../Components/sliderBanner/BannersWrapper';
 
 function Home(props) {
     return (

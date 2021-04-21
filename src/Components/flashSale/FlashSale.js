@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listFlashSale } from '../Actions/FlashSaleAction';
+import { listFlashSale } from '../../Actions/FlashSaleAction';
 import FlashSaleProduct from './FlashSaleProduct';
 
 function FlashSale(props) {

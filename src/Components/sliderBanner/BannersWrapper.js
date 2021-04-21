@@ -1,6 +1,6 @@
 import React from 'react';
 import SliderBanner from './SliderBanner';
-import Data from '../Data';
+import Data from '../../Data';
 function BannersWrapper(props) {
     let banners = Data.banner;
     return (

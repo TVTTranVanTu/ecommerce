@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listProductCategory } from '../Actions/CategoryAction';
-import LoadingBox from './LoadingBox';
-import MessageBox from './MessageBox';
+import { listProductCategory } from '../../Actions/CategoryAction';
+import LoadingBox from '../boxInfor/LoadingBox';
+import MessageBox from '../boxInfor/MessageBox';
 import Pagination from './Pagination';
-import Product from './Product';
+import Product from '../product/Product';
 
 function FilterResult(props) {
     const dispatch = useDispatch();

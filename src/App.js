@@ -4,15 +4,13 @@ import Topbar from './Components/Topbar';
 import Home from './Layouts/Home';
 import './App.css';
 import Footer from './Components/Footer';
-import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SingIn from './Layouts/SignIn';
 import Register from './Layouts/Register';
 import ProductScreen from './Layouts/ProductScreen';
 import PageLayout from './Layouts/PageLayout';
 import UserProfile from './Layouts/UserProfile';
 import RouterCategory from './Routers/routerCategory';
-import Product from './Components/Product';
-import RouterProduct from './Routers/routerProduct';
 
 function App() {
   return (

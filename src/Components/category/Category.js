@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { listCategory } from '../Actions/CategoryAction';
+import { listCategory } from '../../Actions/CategoryAction';
 import CategoryItem from './Category-item.js';
-import LoadingBox from './LoadingBox';
-import MessageBox from './MessageBox';
+import LoadingBox from '../boxInfor/LoadingBox';
+import MessageBox from '../boxInfor/MessageBox';
 function Category(props) {
     const dispatch = useDispatch();
     const categoryList = useSelector((state) => state.categoryList);
@@ -31,7 +31,7 @@ function Category(props) {
                             </div>
                             <div className="category__content">
                                 <div className="carousel-content">
-                                    <ul className="carousel__item-list" style={{ width: categorys.length > 20 ? `${Math.ceil(categorys.length / 2) * 10}%` : '100%', transform: `translate(${translate}px,0px)` }}>
+                                    <ul className="carousel__item-list" style={{ width: `${Math.ceil(categorys.length / 2) * 10}%`, transform: `translate(${translate}px,0px)` }}>
                                         {
                                             categorys.slice(0, Math.ceil(categorys.length / 2)).map((item) => (
                                                 <li key={item.id} className="image-carousel__item">

@@ -1,6 +1,6 @@
 import React from 'react';
-import FilterPanel from '../Components/FilterPanel';
-import FilterResult from '../Components/FilterResult';
+import FilterPanel from '../Components/filterProduct/FilterPanel';
+import FilterResult from '../Components/filterProduct/FilterResult';
 
 function FilterCategory(props) {
     const id = props.match.params.id
