@@ -11,20 +11,25 @@ function ProductScreen(props) {
     const productDetail = useSelector((state) => state.productDetail);
     const { loading, error, productInfo } = productDetail;
 
-    const [value, setValue] = useState(1);
+    const [qty, setQty] = useState(1);
     const reductionHandle = () => {
-        if (value > 1) {
-            setValue(value - 1);
+        if (qty > 1) {
+            setQty(qty - 1);
         }
     }
     const increaseHandle = () => {
-        if (value < productInfo.quantity) {
-            setValue(value + 1);
+        if (qty < productInfo.quantity) {
+            setQty(qty + 1);
         }
     }
     useEffect(() => {
-        dispatch(productCatDetail(id))
-    }, [dispatch])
+        if (id) {
+            dispatch(productCatDetail(id));
+        }
+    }, [dispatch, id])
+    const AddToCardHandle = () => {
+        props.history.push(`/cart/${id}?qty=${qty}`);
+    }
     return (
         <div className="product__screen">
             <div className="container">
@@ -127,7 +132,7 @@ function ProductScreen(props) {
                                                                                         <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5"></polygon>
                                                                                     </svg>
                                                                                 </button>
-                                                                                <input className="_2KdYzP iRO3yj" type="text" value={value} />
+                                                                                <input className="_2KdYzP iRO3yj" type="text" value={qty} onChange={(e) => setQty(e.target.value)} />
                                                                                 <button className="_2KdYzP" onClick={increaseHandle}>
                                                                                     <svg enableBackground="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0" className="shopee-svg-icon icon-plus-sign">
                                                                                         <polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5"></polygon>
@@ -158,7 +163,8 @@ function ProductScreen(props) {
                                                             </svg>
                                                             <span>thêm vào giỏ hàng</span>
                                                         </button>
-                                                        <button type="button" className="btn btn-solid-primary btn--l _3Kiuzg" aria-disabled="false">Mua ngay</button>
+                                                        <button type="button" className="btn btn-solid-primary btn--l _3Kiuzg" aria-disabled="false" onClick={AddToCardHandle}>Mua ngay</button>
+
                                                     </div>
                                                 </div>
                                                 <div style={{ marginTop: "30px", borderTop: '1px solid rgba(0, 0, 0, 0.05)' }}>

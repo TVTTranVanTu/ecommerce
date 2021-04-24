@@ -12,6 +12,7 @@ import PageLayout from './Layouts/PageLayout';
 import UserProfile from './Layouts/UserProfile';
 import RouterCategory from './Routers/routerCategory';
 import SellerLogin from './Layouts/SellerLogin';
+import CartScreen from './Layouts/CartScreen';
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
             <Route
               exact path="/"
               render={(props) => { return <PageLayout content={<Home {...props} />} /> }} />
+            <Route
+              exact
+              path="/cart/:id?"
+              render={(props) => { return <PageLayout content={<CartScreen {...props} />} /> }} />
             <Route
               exact
               path="/signin"
