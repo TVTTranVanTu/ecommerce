@@ -489,9 +489,6 @@ h2 {
     align-items: center;
     justify-content: space-between;
 }
-.product__content {
-    box-shadow: 0 0.0625rem 0.125rem 0 rgb(0 0 0 / 10%);
-}
 
 .recommend-title {
     width: 100%;
@@ -524,4 +521,45 @@ h2 {
 
 .signin-panel {
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+}
+
+.card {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+}
+.flex {
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+}
+.items-center {
+    align-items: center;
+}
+
+/*-------button-------*/
+.btn--l {
+    font-size: 16px;
+    height: 48px;
+    padding: 0 20px;
+}
+.btn-tinted {
+    background: rgba(255, 87, 34, 0.1);
+    border: 1px solid #ee4d2d;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
+}
+.btn-tinted,
+.btn-tinted--link {
+    color: #ee4d2d;
+}
+
+.product-ratings {
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    border-radius: 0.125rem;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 0.9375rem;
+    padding: 1.5625rem;
+    overflow: visible;
 }

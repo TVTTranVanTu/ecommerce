@@ -1,6 +1,6 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thuck from 'redux-thunk';
-import { categoryListReducer, productCategoryReducer } from './Reducer/CategorysReducer';
+import { categoryListReducer, productCategoryReducer, productCatDetailReducer, subCategoryListReducer } from './Reducer/CategorysReducer';
 import { flashSaleListReducer } from './Reducer/FlashSaleReducer';
 import { listRecommendProductReducer } from './Reducer/RecommendProductsReducer';
 import { shopeeMallListReducer } from './Reducer/ShopeeMallReducer';
@@ -12,6 +12,8 @@ const initialState = {
 
 const reducer = combineReducers(
     {
+        productDetail: productCatDetailReducer,
+        subCategoryList: subCategoryListReducer,
         categoryList: categoryListReducer,
         flashSaleList: flashSaleListReducer,
         shopeeMallList: shopeeMallListReducer,

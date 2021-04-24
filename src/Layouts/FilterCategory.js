@@ -7,7 +7,7 @@ function FilterCategory(props) {
     return (
         <div className="filter__category">
             <div className="container">
-                <FilterPanel />
+                <FilterPanel path={props} id={id} />
                 <FilterResult path={props} id={id} />
             </div>
         </div>

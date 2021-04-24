@@ -1,47 +1,235 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { productCatDetail } from '../Actions/CategoryAction';
+import LoadingBox from '../Components/boxInfor/LoadingBox';
+import MessageBox from '../Components/boxInfor/MessageBox';
+import Rating from '../Components/rating/Rating';
 
 function ProductScreen(props) {
-    console.log(props.match.params);
+    const id = props.match.params.id;
+    const dispatch = useDispatch();
+    const productDetail = useSelector((state) => state.productDetail);
+    const { loading, error, productInfo } = productDetail;
 
+    const [value, setValue] = useState(1);
+    const reductionHandle = () => {
+        if (value > 1) {
+            setValue(value - 1);
+        }
+    }
+    const increaseHandle = () => {
+        if (value < productInfo.quantity) {
+            setValue(value + 1);
+        }
+    }
+    useEffect(() => {
+        dispatch(productCatDetail(id))
+    }, [dispatch])
     return (
         <div className="product__screen">
             <div className="container">
-                <div className="product__content">
-                    <div className="product__image">
-                        <div className="image">
-                            {/* <div class="_1KT0Ub">
-                                <div class="_2cH9zc" style={{ display: "none" }}>
-                                    <div class="shopee-image-placeholder _2E6Dva">
-                                        <svg enable-background="new 0 0 54 61" viewBox="0 0 54 61" class="stardust-icon stardust-icon-shopee icon-shopee-tiny">
-                                            <path stroke="none" d="M35.67,44.95 C35.34,47.70 33.67,49.91 31.09,51.01 C29.65,51.63 27.72,51.96 26.19,51.85 C23.81,51.76 21.57,51.18 19.50,50.12 C18.77,49.74 17.67,48.99 16.82,48.28 C16.61,48.10 16.58,47.99 
-                                            16.73,47.78 C16.80,47.67 16.94,47.46 17.25,47.01 C17.71,46.34 17.76,46.26 17.81,46.18 C17.96,45.96 18.19,45.94 18.42,46.12 C18.45,46.14 18.45,46.14 18.47,46.16 C18.50,46.19 18.50,46.19 18.59,46.26 C18.68,46.33 
-                                            18.74,46.37 18.76,46.39 C20.99,48.13 23.58,49.13 26.20,49.24 C29.84,49.19 32.46,47.55 32.93,45.03 C33.44,42.27 31.27,39.88 27.02,38.54 C25.69,38.13 22.33,36.78 21.71,36.42 C18.80,34.71 17.44,32.47 17.64,29.71 
-                                            C17.93,25.88 21.49,23.03 25.98,23.01 C27.98,23.01 29.99,23.42 31.91,24.23 C32.60,24.52 33.81,25.18 34.23,25.50 C34.47,25.68 34.52,25.88 34.38,26.11 C34.31,26.24 34.18,26.44 33.91,26.87 L33.91,26.87 C33.55,27.44 
-                                            33.54,27.46 33.46,27.59 C33.32,27.80 33.15,27.82 32.90,27.66 C30.84,26.28 28.55,25.58 26.04,25.53 C22.91,25.59 20.57,27.45 20.42,29.99 C20.38,32.28 22.09,33.95 25.80,35.22 C33.33,37.64 36.21,40.48 35.67,44.95 
-                                            M26.37,5.43 C31.27,5.43 35.27,10.08 35.46,15.90 L17.29,15.90 C17.47,10.08 21.47,5.43 26.37,5.43 M51.74,17.00 C51.74,16.39 51.26,15.90 50.66,15.90 L50.64,15.90 L38.88,15.90 C38.59,8.21 33.10,2.08 26.37,2.08 
-                                            C19.64,2.08 14.16,8.21 13.87,15.90 L2.07,15.90 C1.48,15.91 1.01,16.40 1.01,17.00 C1.01,17.03 1.01,17.05 1.01,17.08 L1.00,17.08 L2.68,54.14 C2.68,54.25 2.69,54.35 2.69,54.46 C2.69,54.48 2.70,54.50 2.70,54.53 
-                                            L2.70,54.60 L2.71,54.61 C2.96,57.19 4.83,59.26 7.38,59.36 L7.38,59.37 L44.80,59.37 C44.81,59.37 44.83,59.37 44.85,59.37 C44.87,59.37 44.88,59.37 44.90,59.37 L44.98,59.37 L44.98,59.36 C47.57,59.29 49.67,57.19
-                                             49.89,54.58 L49.89,54.58 L49.90,54.54 C49.90,54.51 49.90,54.49 49.90,54.46 C49.90,54.39 49.91,54.33 49.91,54.26 L51.74,17.05 L51.74,17.05 C51.74,17.04 51.74,17.02 51.74,17.00">
-                                            </path>
-                                        </svg>
+                {
+                    loading ? (<LoadingBox></LoadingBox>)
+                        :
+                        error ? (<MessageBox></MessageBox>)
+                            : (
+                                <div className="page-product__detail">
+                                    <div className="product__detail card">
+                                        <div className="product__image">
+                                            <div className="image">
+                                                <div className="_3Q7kBy _2GchKS" style={{ backgroundImage: `url(${productInfo.productThumbnail})`, backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
+                                                </div>
+                                            </div>
+                                            <div className="list__image"></div>
+                                        </div>
+                                        <div className="product__info">
+                                            <div className="product__content">
+                                                <div className="title">
+                                                    <span>{`[${productInfo.postTitle.toUpperCase()}]${productInfo.productName}`}</span>
+                                                </div>
+                                                <div className="flex avgEvalute">
+                                                    <div className="flex evaluate-num">
+                                                        <div className="number Evalute">{productInfo.avgEvalute}</div>
+                                                        <div className="star">
+                                                            <Rating item={productInfo.avgEvalute} />
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex evaluate-num">
+                                                        <div className="Evalute">2.1k</div>
+                                                        <div className="title-evaluate">Đánh giá</div>
+                                                    </div>
+                                                    <div className="flex evaluate-num hidden">
+                                                        <div className="Evalute">{productInfo.soldQuantity}</div>
+                                                        <div className="title-evaluate">Đã bán</div>
+                                                    </div>
+                                                </div>
+                                                <div style={{ marginTop: "10px" }}>
+                                                    <div className="flex flex-column">
+                                                        <div className="flex flex-column content">
+                                                            <div className="flex items-center">
+                                                                <div className="flex items-center _3Dt65t">
+                                                                    <div className="flex items-center">
+                                                                        <div className="_3e_UQT">₫{productInfo.productPrice.toLocaleString('vi-VN')}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="_2nr4HE">
+                                                    <div className="flex flex-column">
+                                                        <div className="flex _3AHLrn">
+                                                            <label className="_2IW_UG">Deal Sốc</label>
+                                                            <div className="_141XG4">Mua để nhận quà</div>
+                                                        </div>
+                                                        <div className="flex _3AHLrn _2m964I">
+                                                            <label className="_2IW_UG">Vận chuyển</label>
+                                                            <div className="_3HMG0A aPPgp7">
+                                                                <div className="_1szdsu">
+                                                                    <div className="R2Ygax">
+                                                                        <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/1cdd37339544d858f4d0ade5723cd477.png" width="25" height="15" className="_2geN66" />
+                                                                        Miễn Phí Vận Chuyển
+                                                                        </div>
+                                                                    <div className="gRuynh">
+                                                                        Miễn Phí Vận Chuyển khi đơn đạt giá trị tối thiểu
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex _3AHLrn _2XdAdB">
+                                                            <div className="flex flex-column">
+                                                                <div className="flex items-center _mrbt" >
+                                                                    <label className="_2IW_UG">Màu sắc</label>
+                                                                    <div className="flex items-center _2oeDUI">
+                                                                        <button className="product-variation product-variation--disabled">Đen</button>
+                                                                        <button className="product-variation product-variation--disabled">Trắng</button>
+                                                                        <button className="product-variation product-variation--disabled">Xanh Lá</button>
+                                                                        <button className="product-variation product-variation--disabled">Xanh Biển</button>
+                                                                        <button className="product-variation">Gói_XảVải</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="flex items-center _mrbt">
+                                                                    <label className="_2IW_UG">Size</label>
+                                                                    <div className="flex items-center _2oeDUI">
+                                                                        <button className="product-variation">M (dưới 46kg)</button>
+                                                                        <button className="product-variation">L (dưới 53kg)</button>
+                                                                        <button className="product-variation">XL (dưới 60kg)</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="flex items-center _90fTvx">
+                                                                    <div className="_2IW_UG">Số lượng</div>
+                                                                    <div className="flex items-center">
+                                                                        <div style={{ marginRight: "15px" }}>
+                                                                            <div className="_16mL_A shopee-input-quantity">
+                                                                                <button className="_2KdYzP" onClick={reductionHandle}>
+                                                                                    <svg enableBackground="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0" className="shopee-svg-icon ">
+                                                                                        <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5"></polygon>
+                                                                                    </svg>
+                                                                                </button>
+                                                                                <input className="_2KdYzP iRO3yj" type="text" value={value} />
+                                                                                <button className="_2KdYzP" onClick={increaseHandle}>
+                                                                                    <svg enableBackground="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0" className="shopee-svg-icon icon-plus-sign">
+                                                                                        <polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5"></polygon>
+                                                                                    </svg>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>{productInfo.quantity} sản phẩm có sẵn</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="cpAMpZ">
+                                                    <div className="_1BdIQL">
+                                                        <button type="button" className="btn btn-tinted btn--l _3Kiuzg _1D3GfE" aria-disabled="false">
+                                                            <svg enableBackground="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" className="shopee-svg-icon _2FCuXA icon-add-to-cart">
+                                                                <g>
+                                                                    <g>
+                                                                        <polyline fill="none" points=".5 .5 2.7 .5 5.2 11 12.4 11 14.5 3.5 3.7 3.5" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10"></polyline>
+                                                                        <circle cx="6" cy="13.5" r="1" stroke="none"></circle>
+                                                                        <circle cx="11.5" cy="13.5" r="1" stroke="none"></circle>
+                                                                    </g>
+                                                                    <line fill="none" strokeLinecap="round" strokeMiterlimit="10" x1="7.5" x2="10.5" y1="7" y2="7"></line>
+                                                                    <line fill="none" strokeLinecap="round" strokeMiterlimit="10" x1="9" x2="9" y1="8.5" y2="5.5"></line>
+                                                                </g>
+                                                            </svg>
+                                                            <span>thêm vào giỏ hàng</span>
+                                                        </button>
+                                                        <button type="button" className="btn btn-solid-primary btn--l _3Kiuzg" aria-disabled="false">Mua ngay</button>
+                                                    </div>
+                                                </div>
+                                                <div style={{ marginTop: "30px", borderTop: '1px solid rgba(0, 0, 0, 0.05)' }}>
+                                                    <a target="_blank" rel="noopener noreferrer" className="_1oVt8f flex items-center" href="https://help.shopee.vn/vn/s/article/Ch%C3%ADnh-s%C3%A1ch-tr%E1%BA%A3-h%C3%A0ng-c%E1%BB%A7a-Shopee-l%C3%A0-g%C3%AC-1542942384513">
+                                                        <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/67454c89080444c5997b53109072c9e0.png" className="oMlrfZ" />
+                                                        <span className="tBtxtS">Shopee Đảm Bảo</span>
+                                                        <span>3 Ngày Trả Hàng / Hoàn Tiền</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="center WlrGVu">
+                                    <div className="product-ratings">
+                                        <div className="product-ratings__header">ĐÁNH GIÁ SẢN PHẨM</div>
+                                        <div className="product-rating-overview">
+                                            <div className="product-rating-overview__briefing">
+                                                <div className="product-rating-overview__score-wrapper">
+                                                    <span className="product-rating-overview__rating-score">{productInfo.avgEvalute}</span>
+                                                    <span className="product-rating-overview__rating-score-out-of"> trên {productInfo.avgEvalute} </span>
+                                                </div>
+                                                <div className="shopee-rating-stars product-rating-overview__stars">
+                                                    <Rating item={productInfo.avgEvalute} />
+                                                </div>
+                                            </div>
+                                            <div className="product-rating-overview__filters">
+                                                <div className="product-rating-overview__filter product-rating-overview__filter--active product-rating-overview__filter--all">tất cả</div>
+                                                <div className="product-rating-overview__filter">5 Sao (855)</div>
+                                                <div className="product-rating-overview__filter">4 Sao (3)</div>
+                                                <div className="product-rating-overview__filter">3 Sao (0)</div>
+                                                <div className="product-rating-overview__filter">2 Sao (0)</div>
+                                                <div className="product-rating-overview__filter">1 Sao (0)</div>
+                                                <div className="product-rating-overview__filter product-rating-overview__filter--with-comment">Có Bình luận (176)</div>
+                                                <div className="product-rating-overview__filter product-rating-overview__filter--with-photo">Có hình ảnh / video (171)</div>
+                                            </div>
+                                        </div>
+                                        <div className="product-ratings__list">
+                                            <div className="shopee-product-comment-list">
+
+                                                {
+                                                    productInfo.commentList.map((item, index) => (
+                                                        <div key={index} className="shopee-product-rating">
+                                                            <a className="shopee-product-rating__avatar" href="/shop/235127802">
+                                                                <div className="shopee-avatar">
+                                                                    <div className="shopee-avatar__placeholder">
+                                                                        <svg enableBackground="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" className="shopee-svg-icon icon-headshot">
+                                                                            <g>
+                                                                                <circle cx="7.5" cy="4.5" fill="none" r="3.8" strokeMiterlimit="10"></circle>
+                                                                                <path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" strokeLinecap="round" strokeMiterlimit="10"></path>
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <img className="shopee-avatar__img" src={item.userAvatar} />
+                                                                </div>
+                                                            </a>
+                                                            <div className="shopee-product-rating__main">
+                                                                <a className="shopee-product-rating__author-name" href="/shop/235127802">{item.userName}</a>
+                                                                <div className="shopee-product-rating__rating">
+                                                                    <Rating item={item.evalute}></Rating>
+                                                                </div>
+                                                                <div className="shopee-product-rating__content">{item.content}</div>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                }
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="_25_r8I">
-                                    <div class="_3Q7kBy _2GchKS" style={{ backgroundImage: `url(https://cf.shopee.vn/file/3120a3dd06354f4d5fa1a0a1b82439e9&quot)`, backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
-                                    </div>
-                                </div>
-                            </div> */}
-                            <div class="_25_r8I">
-                                <div class="_3Q7kBy _2GchKS" style={{ backgroundImage: `url(https://cf.shopee.vn/file/1398cebbac702905e4a577f0331bfe9b&quot;)`, backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="list__image"></div>
-                    </div>
-                    <div className="product__info">pd1</div>
-                </div>
+
+                            )
+                }
             </div>
         </div>
     );
