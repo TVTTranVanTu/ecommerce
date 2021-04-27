@@ -1,8 +1,10 @@
 import axiosClient from "./axiosClient";
-
+import queryString from "query-string";
 export const productAPI = {
-    getAll: (id) => {
-        const url = `/home/categories/${id}/products`;
+
+    getAll: (id, params) => {
+        const queryParams = queryString.stringify(params);
+        const url = `/home/categories/${id}/pageable-products?${queryParams}`;
         return axiosClient.get(url);
     },
     get: (id) => {

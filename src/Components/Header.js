@@ -1,7 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function Header(props) {
+    const cart = useSelector((state) => state.cart);
+    const { cartItems } = cart;
     return (
         <div className="header">
             <div className="container">
@@ -77,12 +80,15 @@ function Header(props) {
                     </div>
                 </div>
                 <div className="header__cart">
-                    <Link to="cart">
+                    <Link to="cart" className="cart-link">
                         <svg viewBox="0 0 26.6 25.6" className="shopee-svg-icon navbar__link-icon icon-shopping-cart-2">
                             <polyline fill="none" points="2 1.7 5.5 1.7 9.6 18.3 21.2 18.3 24.6 6.1 7 6.1" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2.5"></polyline>
                             <circle cx="10.7" cy="23" r="2.2" stroke="none"></circle>
                             <circle cx="19.7" cy="23" r="2.2" stroke="none"></circle>
                         </svg>
+                        {cartItems.length > 0 && (
+                            <div className="shopee-cart-number-badge">{cartItems.length}</div>
+                        )}
                     </Link>
                 </div>
             </div>

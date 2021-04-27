@@ -43,12 +43,14 @@ export const listSubCategory = (id) => async (dispatch) => {
         dispatch({ type: SUBCATEGORY_LIST_FAIL, payload: error.message })
     }
 };
-export const listProductCategory = (id) => async (dispatch) => {
+
+
+export const listProductCategoryParams = (id, params) => async (dispatch) => {
     dispatch({
         type: PRODUCT_CATEGORY_LIST_REQUEST
     });
     try {
-        const data = await productAPI.getAll(id);
+        const data = await productAPI.getAll(id, params);
         dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
     } catch (error) {
         dispatch({

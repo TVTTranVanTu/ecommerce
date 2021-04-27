@@ -2,7 +2,7 @@ import productAPI from "../Api/productApi";
 import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_PAYPAL_METHOD, CART_SAVE_SHIPPING_ADDRESS } from "../Constants/CartContants";
 
 
-export const addToCart = (productId, qty) => async (dispatch, getState) => {
+export const addToCart = (productId, qty, size) => async (dispatch, getState) => {
     const data = await productAPI.get(productId);
     dispatch({
         type: CART_ADD_ITEM,
@@ -14,6 +14,7 @@ export const addToCart = (productId, qty) => async (dispatch, getState) => {
             product: data.id,
             postTitle: data.postTitle,
             qty,
+            size,
         }
     });
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));

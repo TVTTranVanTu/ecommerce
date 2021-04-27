@@ -91,6 +91,17 @@
             width: 15%;
             text-align: center;
             align-items: center;
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            padding-bottom: 5px;
+            margin: 0 10px;
+            .cart-link {
+                display: flex;
+                text-align: center;
+                align-items: center;
+                margin: 0 auto;
+            }
             .icon-shopping-cart-2 {
                 fill: #fff;
                 color: #fff;
@@ -112,6 +123,26 @@
                     color: #fff;
                     stroke: #fff;
                 }
+            }
+
+            .shopee-cart-number-badge {
+                position: relative;
+                border-radius: 2.75rem;
+                min-width: 0.6875rem;
+                line-height: 1.2em;
+                padding: 0 0.3125rem;
+                text-align: center;
+                height: 1rem;
+                border: 0.125rem solid #ee4d2d;
+                color: #ee4d2d;
+                background-color: #fff;
+                left: -1.125rem;
+                top: -0.5rem;
+                margin-right: -0.875rem;
+            }
+            .shopee-cart-number-badge {
+                top: -0.6875rem;
+                left: -0.6875rem;
             }
         }
     }

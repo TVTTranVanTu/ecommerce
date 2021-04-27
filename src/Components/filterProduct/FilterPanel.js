@@ -12,12 +12,12 @@ function FilterPanel(props) {
     const subCategoryList = useSelector((state) => state.subCategoryList);
     const { loading, error, subCategories } = subCategoryList;
 
-
     const { id } = props;
+
 
     useEffect(() => {
         dispatch(listSubCategory(id))
-    }, [dispatch], id)
+    }, [dispatch], id);
 
     return (
         <div className="filter__panel">
@@ -42,18 +42,21 @@ function FilterPanel(props) {
                     Tất cả Danh mục
                 </a>
                 <div className="shopee-category-list__body">
-                    <div className="shopee-category-list__category">
-                        <div className="shopee-category-list__main-category shopee-category-list__main-category--active">
-                            <a className="shopee-category-list__main-category__link" href="/Thời-Trang-Nam-cat.78">
-                                <svg viewBox="0 0 4 7" className="shopee-svg-icon shopee-category-list__main-category__caret icon-down-arrow-right-filled">
-                                    <polygon points="4 3.5 0 0 0 7">
-                                    </polygon>
-                                </svg>
-                                Thời Trang Nam
-                                </a>
-                        </div>
-                        {
-                            loading ? ('') : (
+                    {
+                        loading ? ('') : (
+                            <div className="shopee-category-list__category">
+                                <div className="shopee-category-list__main-category shopee-category-list__main-category--active">
+                                    <a className="shopee-category-list__main-category__link" href="/Thời-Trang-Nam-cat.78">
+                                        <svg viewBox="0 0 4 7" className="shopee-svg-icon shopee-category-list__main-category__caret icon-down-arrow-right-filled">
+                                            <polygon points="4 3.5 0 0 0 7">
+                                            </polygon>
+                                        </svg>
+                                        {
+                                            subCategories[1].categoryName
+                                        }
+                                    </a>
+                                </div>
+
                                 <div className="folding-items shopee-category-list__sub-category-list folding-items--folded">
                                     {
                                         subCategories.slice(0, 5).map((item) => (
@@ -94,10 +97,12 @@ function FilterPanel(props) {
                                         </div>
                                     </div>
                                 </div>
-                            )
-                        }
 
-                    </div>
+                            </div>
+
+                        )
+                    }
+
                 </div>
             </div>
             <div className="shopee-search-filter-status shopee-search-filter-status--has-margin">

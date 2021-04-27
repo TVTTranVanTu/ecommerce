@@ -4,6 +4,7 @@ import Rating from '../rating/Rating';
 
 function Product(props) {
     const { item } = props;
+    console.log(item);
     const id = item.id;
     const name = item.postTitle.replace(/\s/g, '-');
     return (
@@ -33,7 +34,7 @@ function Product(props) {
                             <span className="_29R_un">{item.productPrice}</span>
                         </div>
                         <div className="shopee-rating">
-                            <Rating item={item} />
+                            <Rating item={item.avgEvalute} />
                             <div className="go5yPW">Đã bán
                             {
                                     item.soldQuantity < 1000 ? `${item.soldQuantity}` : `${item.soldQuantity / 1000}k`

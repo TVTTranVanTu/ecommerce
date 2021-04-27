@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../Actions/CartAction';
+import { Link, useLocation } from 'react-router-dom';
+import {
+    addToCart,
+    removeFromCart
+} from '../Actions/CartAction';
 import MessageBox from '../Components/boxInfor/MessageBox';
+
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 function CartScreen(props) {
     const dispatch = useDispatch();
     const productId = props.match.params.id;
-    const qty = props.location.search ? Number(props.location.search.split('=')[1]) : 1;
+    // const qty = props.location.search ? Number(props.location.search.split('=')[1]) : 1;
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
-
+    let query = useQuery();
+    const qty = query.get("qty");
+    const size = query.get("size");
     useEffect(() => {
         if (productId) {
-            dispatch(addToCart(productId, qty));
+            dispatch(addToCart(productId, qty, size));
         }
     }, [dispatch, productId, qty]);
     const removeFromCartHandle = (id) => {
@@ -62,7 +72,7 @@ function CartScreen(props) {
                                                             <div className="wVIh3V _3VMiFu">
                                                                 <div className="fR1TuC" role="button" tabIndex="0">
                                                                     <div className="_3zs0wV">Phân loại hàng:</div>
-                                                                    <div className="LidAAI">FREESIZE</div>
+                                                                    <div className="LidAAI">SIZE: {item.size}</div>
                                                                 </div>
                                                                 <div>
                                                                 </div>
@@ -106,7 +116,7 @@ function CartScreen(props) {
                 <div className="cart-page-footer cart-page-footer--overlap">
                     <div className="cart__bottom">
                         <div className="backto_listfood">
-                            <Link to="/pet-food">
+                            <Link to="/">
                                 <i className="fas fa-backward"></i>
                             Tiếp tục mua hàng
                             </Link>

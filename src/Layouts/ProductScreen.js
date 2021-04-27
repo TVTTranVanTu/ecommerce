@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../Actions/CartAction';
 import { productCatDetail } from '../Actions/CategoryAction';
 import LoadingBox from '../Components/boxInfor/LoadingBox';
 import MessageBox from '../Components/boxInfor/MessageBox';
@@ -12,6 +13,7 @@ function ProductScreen(props) {
     const { loading, error, productInfo } = productDetail;
 
     const [qty, setQty] = useState(1);
+    const [size, setSize] = useState('L');
     const reductionHandle = () => {
         if (qty > 1) {
             setQty(qty - 1);
@@ -26,9 +28,15 @@ function ProductScreen(props) {
         if (id) {
             dispatch(productCatDetail(id));
         }
-    }, [dispatch, id])
+    }, [dispatch, id]);
+
+    const BuyToCardHandle = () => {
+        dispatch(addToCart(id, qty, size));
+        props.history.push(`/cart/${id}?qty=${qty}&size=${size}`);
+    };
     const AddToCardHandle = () => {
-        props.history.push(`/cart/${id}?qty=${qty}`);
+        dispatch(addToCart(id, qty, size));
+        props.history.goBack();
     }
     return (
         <div className="product__screen">
@@ -104,22 +112,12 @@ function ProductScreen(props) {
                                                         </div>
                                                         <div className="flex _3AHLrn _2XdAdB">
                                                             <div className="flex flex-column">
-                                                                <div className="flex items-center _mrbt" >
-                                                                    <label className="_2IW_UG">Màu sắc</label>
-                                                                    <div className="flex items-center _2oeDUI">
-                                                                        <button className="product-variation product-variation--disabled">Đen</button>
-                                                                        <button className="product-variation product-variation--disabled">Trắng</button>
-                                                                        <button className="product-variation product-variation--disabled">Xanh Lá</button>
-                                                                        <button className="product-variation product-variation--disabled">Xanh Biển</button>
-                                                                        <button className="product-variation">Gói_XảVải</button>
-                                                                    </div>
-                                                                </div>
                                                                 <div className="flex items-center _mrbt">
                                                                     <label className="_2IW_UG">Size</label>
                                                                     <div className="flex items-center _2oeDUI">
-                                                                        <button className="product-variation">M (dưới 46kg)</button>
-                                                                        <button className="product-variation">L (dưới 53kg)</button>
-                                                                        <button className="product-variation">XL (dưới 60kg)</button>
+                                                                        <button className={`${size === 'M' ? 'product-variation active' : 'product-variation'}`} onClick={() => setSize('M')}>M (dưới 46kg)</button>
+                                                                        <button className={`${size === 'L' ? 'product-variation active' : 'product-variation'}`} onClick={() => setSize('L')}>L (dưới 53kg)</button>
+                                                                        <button className={`${size === 'XL' ? 'product-variation active' : 'product-variation'}`} onClick={() => setSize('XL')}>XL (dưới 60kg)</button>
                                                                     </div>
                                                                 </div>
                                                                 <div className="flex items-center _90fTvx">
@@ -149,7 +147,7 @@ function ProductScreen(props) {
                                                 </div>
                                                 <div className="cpAMpZ">
                                                     <div className="_1BdIQL">
-                                                        <button type="button" className="btn btn-tinted btn--l _3Kiuzg _1D3GfE" aria-disabled="false">
+                                                        <button type="button" className="btn btn-tinted btn--l _3Kiuzg _1D3GfE" aria-disabled="false" onClick={AddToCardHandle}>
                                                             <svg enableBackground="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" className="shopee-svg-icon _2FCuXA icon-add-to-cart">
                                                                 <g>
                                                                     <g>
@@ -163,7 +161,7 @@ function ProductScreen(props) {
                                                             </svg>
                                                             <span>thêm vào giỏ hàng</span>
                                                         </button>
-                                                        <button type="button" className="btn btn-solid-primary btn--l _3Kiuzg" aria-disabled="false" onClick={AddToCardHandle}>Mua ngay</button>
+                                                        <button type="button" className="btn btn-solid-primary btn--l _3Kiuzg" aria-disabled="false" onClick={BuyToCardHandle}>Mua ngay</button>
 
                                                     </div>
                                                 </div>
@@ -237,7 +235,7 @@ function ProductScreen(props) {
                             )
                 }
             </div>
-        </div>
+        </div >
     );
 }
 

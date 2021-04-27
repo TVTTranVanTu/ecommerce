@@ -45,19 +45,21 @@ export const subCategoryListReducer = (
 };
 
 export const productCategoryReducer = (
-    state = { loading: true, listProducts: [] }, action
+    state = { loading: true, data: {} }, action
 ) => {
     switch (action.type) {
         case PRODUCT_CATEGORY_LIST_REQUEST:
             return { loading: true }
         case PRODUCT_CATEGORY_LIST_SUCCESS:
-            return { loading: false, listProducts: action.payload }
+            return { loading: false, data: action.payload }
         case PRODUCT_CATEGORY_LIST_FAIL:
             return { loading: false, error: action.payload }
         default:
             return state;
     }
 };
+
+
 
 export const productCatDetailReducer = (
     state = { loading: true, productInfo: {} }, action
