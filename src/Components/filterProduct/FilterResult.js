@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listProductCategoryParams } from '../../Actions/CategoryAction';
+import { listProductCategoryParamsTest } from '../../Actions/CategoryAction';
 import LoadingBox from '../boxInfor/LoadingBox';
 import MessageBox from '../boxInfor/MessageBox';
 import Pagination from './Pagination';
@@ -9,21 +9,29 @@ import Product from '../product/Product';
 function FilterResult(props) {
 
     const { id } = props;
-
+    let newId = Number(id.split('.')[1]);
+    console.log(newId);
     const [filters, setFilters] = useState({
         limit: 20,
         page: 0,
-    })
-
+    });
     const dispatch = useDispatch();
     const productsCategory = useSelector((state) => state.productsCategory);
     const { loading, error, data } = productsCategory;
+
     function handlePageChange(newPage) {
         setFilters({ ...filters, page: newPage });
-    }
+    };
     useEffect(() => {
-        dispatch(listProductCategoryParams(id, filters));
-    }, [filters, dispatch, id]);
+        if (Number.isNaN(newId)) {
+            const subPath = "";
+            dispatch(listProductCategoryParamsTest(subPath, id, filters));
+        }
+        else {
+            const subPath = "/subcategories";
+            dispatch(listProductCategoryParamsTest(subPath, newId, filters));
+        }
+    }, [filters, dispatch, newId, id]);
 
 
 
@@ -88,8 +96,6 @@ function FilterResult(props) {
                             </>
                         )
             }
-
-
         </div>
 
     );

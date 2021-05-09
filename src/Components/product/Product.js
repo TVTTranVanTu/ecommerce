@@ -4,9 +4,8 @@ import Rating from '../rating/Rating';
 
 function Product(props) {
     const { item } = props;
-    console.log(item);
     const id = item.id;
-    const name = item.postTitle.replace(/\s/g, '-');
+    const name = item.postTitle.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/\s/gi, '-');
     return (
         <div className="shopee-search-item-result__item">
             <Link to={`/${name}.${id}`}>

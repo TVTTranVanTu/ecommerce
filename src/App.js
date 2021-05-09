@@ -13,6 +13,9 @@ import UserProfile from './Layouts/UserProfile';
 import RouterCategory from './Routers/routerCategory';
 import SellerLogin from './Layouts/SellerLogin';
 import CartScreen from './Layouts/CartScreen';
+import SalePage from './Layouts/SalePage';
+import FlashSalePage from './Layouts/FlashSalePage';
+import ShopeeMallPage from './Layouts/ShopeeMallPage';
 
 function App() {
   return (
@@ -22,7 +25,7 @@ function App() {
           <Topbar />
           <Header />
         </div>
-        <div>
+        <div className="main">
           <Switch>
             <Route
               exact path="/"
@@ -56,6 +59,18 @@ function App() {
               exact
               path="/account"
               render={(props) => { return <PageLayout content={<UserProfile {...props} />} /> }} />
+            <Route
+              exact
+              path="/flash-sale"
+              render={(props) => { return <PageLayout content={<FlashSalePage {...props} />} /> }} />
+            <Route
+              exact
+              path="/Khung-Giờ-Săn-Sale"
+              render={(props) => { return <PageLayout content={<SalePage {...props} />} /> }} />
+            <Route
+              exact
+              path="/shopee-mall"
+              render={(props) => { return <PageLayout content={<ShopeeMallPage {...props} />} /> }} />
           </Switch>
         </div>
         <Footer />

@@ -2,7 +2,7 @@ import React from 'react';
 
 function PageLayout(props) {
     return (
-        <div>
+        <div className="page-layout">
             {props.content}
         </div>
     );

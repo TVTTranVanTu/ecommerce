@@ -11,13 +11,12 @@ function FilterPanel(props) {
     const dispatch = useDispatch();
     const subCategoryList = useSelector((state) => state.subCategoryList);
     const { loading, error, subCategories } = subCategoryList;
-
     const { id } = props;
-
-
+    let newId = Number(id.split('.', 1)[0]);
+    console.log("newId", newId);
     useEffect(() => {
-        dispatch(listSubCategory(id))
-    }, [dispatch], id);
+        dispatch(listSubCategory(newId))
+    }, [dispatch, newId]);
 
     return (
         <div className="filter__panel">
@@ -43,64 +42,65 @@ function FilterPanel(props) {
                 </a>
                 <div className="shopee-category-list__body">
                     {
-                        loading ? ('') : (
-                            <div className="shopee-category-list__category">
-                                <div className="shopee-category-list__main-category shopee-category-list__main-category--active">
-                                    <a className="shopee-category-list__main-category__link" href="/Thời-Trang-Nam-cat.78">
-                                        <svg viewBox="0 0 4 7" className="shopee-svg-icon shopee-category-list__main-category__caret icon-down-arrow-right-filled">
-                                            <polygon points="4 3.5 0 0 0 7">
-                                            </polygon>
-                                        </svg>
+                        loading ? ('') :
+                            error ? ('') : (
+                                <div className="shopee-category-list__category">
+                                    <div className="shopee-category-list__main-category ">
+                                        <Link className="shopee-category-list__main-category__link shopee-category-list__main-category--active" to={`${subCategories[1].categoryName.replace(/[^a-zA-Z ]/g, "").replace(/\s/g, '-')}.cat${subCategories[1].categoryId}`}>
+                                            <svg viewBox="0 0 4 7" className="shopee-svg-icon shopee-category-list__main-category__caret icon-down-arrow-right-filled">
+                                                <polygon points="4 3.5 0 0 0 7">
+                                                </polygon>
+                                            </svg>
+                                            {
+                                                subCategories[1].categoryName
+                                            }
+                                        </Link>
+                                    </div>
+
+                                    <div className="folding-items shopee-category-list__sub-category-list folding-items--folded">
                                         {
-                                            subCategories[1].categoryName
+                                            subCategories.slice(0, 5).map((item) => (
+                                                <Link key={item.id} className="shopee-category-list__sub-category " to={item.subCategoryName.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/\s/gi, '-') + ".cat" + item.categoryId + "." + item.id}>
+                                                    <svg viewBox="0 0 4 7" className="shopee-svg-icon shopee-category-list__sub-category__caret icon-down-arrow-right-filled">
+                                                        <polygon points="4 3.5 0 0 0 7">
+                                                        </polygon>
+                                                    </svg>
+                                                    {item.subCategoryName}
+                                                </Link>
+                                            ))
                                         }
-                                    </a>
-                                </div>
-
-                                <div className="folding-items shopee-category-list__sub-category-list folding-items--folded">
-                                    {
-                                        subCategories.slice(0, 5).map((item) => (
-                                            <Link key={item.id} className="shopee-category-list__sub-category" to={item.subCategoryName.replace(/^\/|\//g, "").replace(/\s/g, '-') + ".cat" + item.id}>
-                                                <svg viewBox="0 0 4 7" className="shopee-svg-icon shopee-category-list__sub-category__caret icon-down-arrow-right-filled">
-                                                    <polygon points="4 3.5 0 0 0 7">
-                                                    </polygon>
-                                                </svg>
-                                                {item.subCategoryName}
-                                            </Link>
-                                        ))
-                                    }
-                                    <div className="stardust-dropdown folding-items__toggle">
-                                        <div className="stardust-dropdown__item-header" onClick={() => setDropdownC(true)} style={{ display: `${dropdownC ? 'none' : 'block'}` }}>
-                                            <div className="shopee-category-list__toggle-btn">
-                                                Thêm
+                                        <div className="stardust-dropdown folding-items__toggle">
+                                            <div className="stardust-dropdown__item-header" onClick={() => setDropdownC(true)} style={{ display: `${dropdownC ? 'none' : 'block'}` }}>
+                                                <div className="shopee-category-list__toggle-btn">
+                                                    Thêm
                                             <svg enableBackground="new 0 0 11 11" viewBox="0 0 11 11" className="stardust-icon stardust-icon-arrow-down">
-                                                    <path stroke="none" d="m11 2.5c0 .1 0 .2-.1.3l-5 6c-.1.1-.3.2-.4.2s-.3-.1-.4-.2l-5-6c-.2-.2-.1-.5.1-.7s.5-.1.7.1l4.6 5.5 4.6-5.5c.2-.2.5-.2.7-.1.1.1.2.3.2.4z">
-                                                    </path>
-                                                </svg>
+                                                        <path stroke="none" d="m11 2.5c0 .1 0 .2-.1.3l-5 6c-.1.1-.3.2-.4.2s-.3-.1-.4-.2l-5-6c-.2-.2-.1-.5.1-.7s.5-.1.7.1l4.6 5.5 4.6-5.5c.2-.2.5-.2.7-.1.1.1.2.3.2.4z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="stardust-dropdown__item-body" style={{ display: `${dropdownC ? 'block' : 'none'}`, cursor: "pointer" }}>
-                                            <div className="folding-items__folded-items">
-                                                {
-                                                    subCategories.slice(5, subCategories.length).map((item) => (
-                                                        <Link key={item.id} className="shopee-category-list__sub-category" to={item.subCategoryName.replace(/^\/|\//g, "").replace(/\s/g, '-') + ".cat" + item.id}>
-                                                            <svg viewBox="0 0 4 7" className="shopee-svg-icon shopee-category-list__sub-category__caret icon-down-arrow-right-filled">
-                                                                <polygon points="4 3.5 0 0 0 7">
-                                                                </polygon>
-                                                            </svg>
-                                                            {item.subCategoryName}
-                                                        </Link>
-                                                    ))
-                                                }
+                                            <div className="stardust-dropdown__item-body" style={{ display: `${dropdownC ? 'block' : 'none'}`, cursor: "pointer" }}>
+                                                <div className="folding-items__folded-items">
+                                                    {
+                                                        subCategories.slice(5, subCategories.length).map((item) => (
+                                                            <Link key={item.id} className="shopee-category-list__sub-category" to={item.subCategoryName.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/\s/gi, '-') + ".cat" + item.categoryId + "." + item.id}>
+                                                                <svg viewBox="0 0 4 7" className="shopee-svg-icon shopee-category-list__sub-category__caret icon-down-arrow-right-filled">
+                                                                    <polygon points="4 3.5 0 0 0 7">
+                                                                    </polygon>
+                                                                </svg>
+                                                                {item.subCategoryName}
+                                                            </Link>
+                                                        ))
+                                                    }
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
-                            </div>
-
-                        )
+                            )
                     }
 
                 </div>

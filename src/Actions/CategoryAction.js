@@ -44,13 +44,12 @@ export const listSubCategory = (id) => async (dispatch) => {
     }
 };
 
-
-export const listProductCategoryParams = (id, params) => async (dispatch) => {
+export const listProductCategoryParamsTest = (name, id, params) => async (dispatch) => {
     dispatch({
         type: PRODUCT_CATEGORY_LIST_REQUEST
     });
     try {
-        const data = await productAPI.getAll(id, params);
+        const data = await productAPI.getSubAll(name, id, params);
         dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
@@ -59,7 +58,6 @@ export const listProductCategoryParams = (id, params) => async (dispatch) => {
         });
     }
 };
-
 export const productCatDetail = (id) => async (dispatch) => {
     dispatch({ type: PRODUCT_DETAIL_REQUEST });
     try {

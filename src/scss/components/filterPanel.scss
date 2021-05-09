@@ -72,6 +72,13 @@
                     }
                 }
             }
+            .shopee-category-list__sub-category--active {
+                color: #ee4d2d;
+                .icon-down-arrow-right-filled {
+                    opacity: 1;
+                    fill: #ee4d2d;
+                }
+            }
         }
     }
     .folding-items {

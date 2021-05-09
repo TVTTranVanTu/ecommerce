@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import { listShopeeMallProducts } from '../../Actions/ShopeeMallAction';
 import ShopeeMallProduct from './ShopeeMallProduct';
@@ -52,7 +53,7 @@ function ShopeeMall(props) {
                     </div>
                     <div className="shopee-mail__header-link">
                         <button className="shopee-button-no-outline">
-                            <a className="_19fjwV" href="#">
+                            <Link className="_19fjwV" to="/shopee-mall">
                                 <div className="_3WSAH5">
                                     Xem tất cả
                                 <div className="_2TyZyx">
@@ -62,7 +63,7 @@ function ShopeeMall(props) {
                                         </svg>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         </button>
                     </div>
                 </div>

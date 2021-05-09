@@ -15,7 +15,6 @@ function useQuery() {
 function CartScreen(props) {
     const dispatch = useDispatch();
     const productId = props.match.params.id;
-    // const qty = props.location.search ? Number(props.location.search.split('=')[1]) : 1;
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
     let query = useQuery();
@@ -124,7 +123,7 @@ function CartScreen(props) {
                         <div className="subtotal">
                             <span>
                                 Tổng giá&nbsp;
-                                ({cartItems.reduce((a, b) => a + b.qty, 0)} sản phẩm) :&nbsp;
+                                ({cartItems.reduce((a, b) => a + Number(b.qty), 0)} sản phẩm) :&nbsp;
                             </span>
                             <span className="sub__total">
                                 {cartItems.reduce((a, b) => a + b.productPrice * b.qty, 0).toLocaleString('vi-VN')} đ

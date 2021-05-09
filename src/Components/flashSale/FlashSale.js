@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { listFlashSale } from '../../Actions/FlashSaleAction';
 import FlashSaleProduct from './FlashSaleProduct';
 
@@ -25,7 +26,7 @@ function FlashSale(props) {
                         <div className="flash-sale-icon"></div>
                         <div className="flash-sale-time"></div>
                     </div>
-                    <a href="#">
+                    <Link to="/flash-sale">
                         <button className="shopee-button-no-outline">
                             Xem tất cả&nbsp;
                             <svg enableBackground="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" className="shopee-svg-icon icon-arrow-right">
@@ -33,7 +34,7 @@ function FlashSale(props) {
                                 </path>
                             </svg>
                         </button>
-                    </a>
+                    </Link>
                 </div>
                 <div className="flash-sale-content">
                     <div className="carousel-content">

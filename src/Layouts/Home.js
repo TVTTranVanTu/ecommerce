@@ -19,7 +19,7 @@ function Home(props) {
             <Category />
             <FlashSale />
             <ShopeeMall />
-            {/* <RecommendProducts /> */}
+            <RecommendProducts />
         </div>
     );
 }

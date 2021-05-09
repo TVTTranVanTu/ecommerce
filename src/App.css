@@ -1,3 +1,8 @@
+.main {
+    margin-top: 170px;
+    position: relative;
+    box-sizing: border-box;
+}
 .container {
     max-width: 1200px;
     display: flex;
@@ -584,4 +589,14 @@ h2 {
     background: rgb(255, 255, 255);
     margin-bottom: 0.9375rem;
     overflow: visible;
+}
+.shopee-product-flash__sale {
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+    border-radius: 0.125rem;
+    overflow: hidden;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 10px;
+    z-index: 1;
 }

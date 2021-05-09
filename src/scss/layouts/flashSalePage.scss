@@ -1,0 +1,23 @@
+.flash-sale__page {
+    position: relative;
+    box-sizing: border-box;
+    .container {
+        display: block;
+        .flashsale-item-result__items {
+            margin: 20px auto;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            .shopee-product-flash__sale {
+                margin-right: 1%;
+                width: 24%;
+                .flash-sale-item-card__lower-wrapper {
+                    padding-top: 20px;
+                    .flash-sale-item-card__current-price {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}
