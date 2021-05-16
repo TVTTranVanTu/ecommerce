@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { signout } from '../Actions/UserAction';
 function Topbar(props) {
     const userSignin = useSelector((state) => state.userSignin);
-    const { userInfo } = userSignin;
+    const { loading, userInfo } = userSignin;
     const dispatch = useDispatch();
     const signoutHandler = () => {
         dispatch(signout());
@@ -27,57 +27,50 @@ function Topbar(props) {
                         <li className="topbar__link"><i className="far fa-question-circle"></i>Trợ giúp</li>
                         <li className="topbar__link ">
                             {
-                                userInfo ? (
-                                    <div className="user__account">
-                                        <div className="user__infor">
-                                            <div className="avatar">
-                                                <div className="avatar__placeholder">
-
-                                                    {
-                                                        userInfo.name ? (
-                                                            <div></div>
-
-                                                        ) : (
+                                loading ? ('') :
+                                    userInfo ? (
+                                        <div className="stardust-popover">
+                                            <div className="stardust-popover__target">
+                                                <div className="navbar__link--account__container">
+                                                    <div className="shopee-avatar">
+                                                        <div className="shopee-avatar__placeholder">
                                                             <svg enableBackground="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0" className="shopee-svg-icon icon-headshot">
                                                                 <g>
                                                                     <circle cx="7.5" cy="4.5" fill="none" r="3.8" strokeMiterlimit="10"></circle>
-                                                                    <path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" strokeLinecap="round" strokeMiterlimit="10">
-                                                                    </path>
+                                                                    <path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" strokeLinecap="round" strokeMiterlimit="10"></path>
                                                                 </g>
                                                             </svg>
-                                                        )
-
-                                                    }
+                                                        </div>
+                                                        <img className="shopee-avatar__img" src="https://cf.shopee.vn/file/5f124aa512e665915146f70c5f654b98_tn" />
+                                                    </div>
+                                                    <div className="navbar__username">{userInfo.userDto.username}</div>
                                                 </div>
+                                            </div>
+                                            <div className="account__content">
+                                                <div className="triangle-up"></div>
+                                                <div className="account__infor bd__bt">
+                                                    <Link to="/account">
+                                                        <i className="fas fa-user-circle"></i>
+                                                        <span>Tài khoản của tôi</span>
+                                                    </Link>
 
-                                            </div>
-                                            <div className="user__name">abc{userInfo.name}</div>
-                                        </div>
-                                        <div className="account__content">
-                                            <div className="triangle-up"></div>
-                                            <div className="account__infor bd__bt">
-                                                <Link to="/account">
-                                                    <i className="fas fa-user-circle"></i>
-                                                    <span>Tài khoản của tôi</span>
-                                                </Link>
-
-                                            </div>
-                                            <div className="history bd__bt">
-                                                <i className="fas fa-history"></i>
-                                                <span>Đơn mua</span>
-                                            </div>
-                                            <div className="sign__out">
-                                                <i className="fas fa-sign-out-alt"></i>
-                                                <Link to="#signout" onClick={signoutHandler}>Đăng xuất</Link>
+                                                </div>
+                                                <div className="history bd__bt">
+                                                    <i className="fas fa-history"></i>
+                                                    <span>Đơn mua</span>
+                                                </div>
+                                                <div className="sign__out">
+                                                    <i className="fas fa-sign-out-alt"></i>
+                                                    <Link to="#signout" onClick={signoutHandler}>Đăng xuất</Link>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ) : (
-                                    <div className="reg__login">
-                                        <Link to="/signin" className="space">Đăng nhập</Link>
-                                        <Link to="/register" className="re-end">Đăng ký</Link>
-                                    </div>
-                                )
+                                    ) : (
+                                        <div className="reg__login">
+                                            <Link to="/signin" className="space">Đăng nhập</Link>
+                                            <Link to="/register" className="re-end">Đăng ký</Link>
+                                        </div>
+                                    )
                             }
 
                         </li>

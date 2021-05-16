@@ -49,50 +49,73 @@
                     a {
                         color: #fff;
                     }
-                }
-                .user__infor {
-                    display: flex;
-                    align-items: center;
-                }
-                .user__account {
-                    position: relative;
-                    .user__infor {
-                        .user__name {
-                            max-width: 9.375rem;
-                            padding-left: 0.3125rem;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                        }
-                        .avatar {
-                            width: 1.375rem;
-                            height: 1.375rem;
-                            display: inline-block;
-                            position: relative;
-                            border-radius: 50%;
-                            border: 0.0625rem solid rgba(0, 0, 0, 0.09);
-                            box-sizing: border-box;
-                            .avatar__placeholder {
-                                width: 100%;
+                    .stardust-popover {
+                        position: relative;
+                        .navbar__link--account__container {
+                            display: flex;
+                            align-items: center;
+                            text-transform: none;
+                            .shopee-avatar {
+                                display: inline-block;
+                                width: 1.875rem;
+                                height: 1.875rem;
                                 position: relative;
-                                padding-top: 100%;
-                                background-color: #f5f5f5;
                                 border-radius: 50%;
-                                overflow: hidden;
-                                .icon-headshot {
-                                    font-size: 0.9375rem;
-                                    line-height: 0.9375rem;
-                                    stroke: #c6c6c6;
+                                border: 0.0625rem solid rgba(0, 0, 0, 0.09);
+                                box-sizing: border-box;
+                            }
+                            .shopee-avatar {
+                                width: 1.375rem;
+                                height: 1.375rem;
+                                .shopee-avatar__placeholder {
+                                    width: 100%;
+                                    position: relative;
+                                    padding-top: 100%;
+                                    background-color: #f5f5f5;
+                                    border-radius: 50%;
+                                    overflow: hidden;
+                                    .icon-headshot {
+                                        stroke: #c6c6c6;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        font-size: 1.5rem;
+                                        font-weight: 400;
+                                        line-height: 2rem;
+                                    }
+                                    .icon-headshot {
+                                        font-size: 0.9375rem;
+                                        line-height: 0.9375rem;
+                                    }
+                                }
+                                .shopee-avatar__img {
+                                    border-radius: 50%;
+                                }
+
+                                .shopee-avatar__img,
+                                .shopee-avatar__img-wrapper {
                                     position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    transform: translate(-50%, -50%);
-                                    font-size: 1.5rem;
-                                    font-weight: 400;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    display: block;
+                                }
+                                img {
+                                    border: 0;
+                                }
+                                .navbar__username {
+                                    max-width: 9.375rem;
+                                    padding-left: 0.3125rem;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
                                 }
                             }
                         }
                     }
                 }
+
                 .triangle-up {
                     position: absolute;
                     top: -10px;
@@ -113,6 +136,12 @@
                     border-radius: 4px;
                     background-color: #fff;
                     display: none;
+                    a {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: black !important;
+                        align-items: center;
+                    }
                     .history,
                     .account__infor {
                         color: black !important;
@@ -142,7 +171,7 @@
                         color: black;
                     }
                 }
-                .user__account:hover {
+                .stardust-popover:hover {
                     .account__content {
                         display: block;
                     }

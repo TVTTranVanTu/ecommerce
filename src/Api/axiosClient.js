@@ -10,7 +10,20 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(async (config) => {
-    // Handle token here ...
+    // const customHeaders = {};
+
+    // const accessToken = localStorage.getItem(StorageKeys.ACCESS_TOKEN);
+    // if (accessToken) {
+    //     customHeaders.Authorization = accessToken;
+    // }
+
+    // return {
+    //     ...config,
+    //     headers: {
+    //         ...customHeaders,
+    //         ...config.headers,
+    //     }
+    // };
     return config;
 });
 

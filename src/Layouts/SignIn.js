@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { signin } from '../Actions/UserAction';
+import MessageBox from '../Components/boxInfor/MessageBox';
 function SingIn(props) {
     const redirect = props.location.search
         ? props.location.search.split('=')[1]
         : '/';
-    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const userSignin = useSelector((state) => state.userSignin);
     const { loading, error, userInfo } = userSignin;
     const submidHandler = (e) => {
         e.preventDefault();
-        dispatch(signin(email, password));
+        dispatch(signin(userName, password));
     }
 
 
@@ -42,14 +43,16 @@ function SingIn(props) {
 
                     </div>
                     <div>
+                        {loading && ('')}
+                        {error && (<MessageBox variant="danger">{error}</MessageBox>)}
                         <form className="form" onSubmit={submidHandler} >
                             <div className="mr__bt">
-                                <input className="ant-input form-control" type="email" id="email" placeholder="Nhập vào email hoặc tên tài khoản ..." required
-                                    onChange={e => setEmail(e.target.value)}></input>
+                                <input className="ant-input form-control" type="text" id="username" placeholder="Nhập vào tên tài khoản ..." required
+                                    onChange={(e) => setUserName(e.target.value)}></input>
                             </div>
                             <div className="mr__bt">
                                 <input className="ant-input form-control" type="password" id="password" placeholder="Nhập vào mật khẩu ..." required
-                                    onChange={e => setPassword(e.target.value)}>
+                                    onChange={(e) => setPassword(e.target.value)}>
                                 </input>
                             </div>
                             <button className="mr__bt ant-btn ant-btn-primary btn btn_orange w100" type="submit">Đăng nhập</button>
@@ -84,7 +87,7 @@ function SingIn(props) {
                             </div>
                             <div className="mr__bt">
                                 <p>Bạn chưa có tài khoản ? &nbsp;
-                                <span>
+                                    <span>
                                         <Link to={`/register`}>Đăng ký</Link>
                                     </span>
                                 </p>
