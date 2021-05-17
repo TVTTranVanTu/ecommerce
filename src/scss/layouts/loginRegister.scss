@@ -27,6 +27,9 @@
     border-radius: 0.25rem;
     overflow: hidden;
     align-items: center;
+    button {
+        cursor: pointer;
+    }
     .form {
         padding: 20px;
         .btn {

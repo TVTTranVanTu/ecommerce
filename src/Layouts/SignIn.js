@@ -1,23 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signin } from '../Actions/UserAction';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+import { siginToGoogle, signin } from '../Actions/UserAction';
 import MessageBox from '../Components/boxInfor/MessageBox';
 function SingIn(props) {
+
+    function signup(res) {
+        const googleresponse = {
+            Name: res.profileObj.name,
+            email: res.profileObj.email,
+            token: res.googleId,
+            Image: res.profileObj.imageUrl,
+            ProviderId: 'Google'
+        };
+        dispatch(siginToGoogle(googleresponse));
+    };
+    const userSigninGG = useSelector(state => state.userSigninGG);
+    const { data } = userSigninGG;
+
+
+    if (data) {
+        const { id } = data;
+        props.history.push(`/form-info.${id}`);
+    }
+
     const redirect = props.location.search
         ? props.location.search.split('=')[1]
         : '/';
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
+
     const userSignin = useSelector((state) => state.userSignin);
     const { loading, error, userInfo } = userSignin;
+
     const submidHandler = (e) => {
         e.preventDefault();
         dispatch(signin(userName, password));
     }
-
-
+    const responseGoogle = (response) => {
+        var res = response.profileObj;
+        signup(response);
+    }
     useEffect(() => {
         if (userInfo) {
             props.history.push(redirect);
@@ -69,13 +95,12 @@ function SingIn(props) {
                                         </div>
                                         <div className="_1iDCwS _28-Tq8">Facebook</div>
                                     </button>
-                                    <button className="dJsOUU _1A307B _1tEaLw _1A307B _1SPkQc">
-                                        <div className="_1b1OLX _35Loth">
-                                            <div className="_1o_kg_ social-white-background social-white-google-png">
-                                            </div>
-                                        </div>
-                                        <div className="_1iDCwS">Google</div>
-                                    </button>
+                                    <GoogleLogin
+                                        className="dJsOUU _1A307B _1tEaLw _1A307B _1SPkQc"
+                                        clientId="662863314372-lobjk150l82p9r0p60m3th41of3rau1a.apps.googleusercontent.com"
+                                        buttonText="Google"
+                                        onSuccess={responseGoogle}
+                                        onFailure={responseGoogle} ></GoogleLogin>
                                     <button className="dJsOUU _1A307B _1tEaLw _1A307B nvH7Oz">
                                         <div className="_1b1OLX">
                                             <div className="_1JEYOo social-white-background social-white-apple-png">

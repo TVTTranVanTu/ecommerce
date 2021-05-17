@@ -5,7 +5,6 @@ import Home from './Layouts/Home';
 import './App.css';
 import Footer from './Components/Footer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import SingIn from './Layouts/SignIn';
 import Register from './Layouts/Register';
 import ProductScreen from './Layouts/ProductScreen';
 import PageLayout from './Layouts/PageLayout';
@@ -16,6 +15,8 @@ import CartScreen from './Layouts/CartScreen';
 import SalePage from './Layouts/SalePage';
 import FlashSalePage from './Layouts/FlashSalePage';
 import ShopeeMallPage from './Layouts/ShopeeMallPage';
+import SingIn from './Layouts/SignIn';
+import FormInfo from './Layouts/FormInfo';
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
               exact
               path="/signin"
               render={(props) => { return <PageLayout content={<SingIn {...props} />} /> }} />
+            <Route
+              exact
+              path="/form-info.:id"
+              render={(props) => { return <PageLayout content={<FormInfo {...props} />} /> }} />
             <Route
               exact
               path="/register"

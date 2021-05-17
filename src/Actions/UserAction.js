@@ -6,10 +6,16 @@ import {
     USER_REGISTER_FAIL,
     USER_REGISTER_REQUEST,
     USER_REGISTER_SUCCESS,
+    USER_SIGNINGG_FAIL,
+    USER_SIGNINGG_REQUEST,
+    USER_SIGNINGG_SUCCESS,
     USER_SIGNIN_FAIL,
     USER_SIGNIN_REQUEST,
     USER_SIGNIN_SUCCESS,
-    USER_SIGNOUT
+    USER_SIGNOUT,
+    USER_UPDATE_FAIL,
+    USER_UPDATE_REQUEST,
+    USER_UPDATE_SUCCESS
 } from "../Constants/UserConstants";
 
 export const checkOtp = (emailAddress) => async (dispatch) => {
@@ -53,6 +59,36 @@ export const signin = (username, password) => async (dispatch) => {
                 ? error.response.data.message
                 : error.message,
         })
+    }
+};
+export const siginToGoogle = (googleresponse) => async (dispatch) => {
+    dispatch({ type: USER_SIGNINGG_REQUEST, payload: { googleresponse } });
+    try {
+        const data = await userApi.signInGoogle(googleresponse);
+        sessionStorage.setItem("userData", JSON.stringify(data));
+        dispatch({ type: USER_SIGNINGG_SUCCESS, payload: data })
+    }
+    catch (error) {
+        dispatch({
+            type: USER_SIGNINGG_FAIL,
+            paload: error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message,
+        })
+    }
+};
+
+export const updateUser = (id, username) => async (dispatch) => {
+    dispatch({ type: USER_UPDATE_REQUEST, payload: username });
+    try {
+        const { data } = await userApi.updateUser(id, { username });
+        dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
+    } catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message;
+        dispatch({ type: USER_UPDATE_FAIL, payload: message });
     }
 };
 

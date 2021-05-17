@@ -13,12 +13,18 @@ const userApi = {
         const url = '/login';
         return axiosClient.post(url, payload);
     },
-
-    // getMe = async (payload) => {
-    //     const url = '/me';
-    //     const response = await axiosClient.get(url, payload);
-    //     return response.data;
-    // }
+    signInFacebook: () => {
+        const url = '/login/facebook';
+        return axiosClient.get(url);
+    },
+    signInGoogle: (payload) => {
+        const url = '/login/google';
+        return axiosClient.post(url, payload);
+    },
+    updateUser: (id, payload) => {
+        const url = `/home/users/${id}/username`;
+        return axiosClient.put(url, payload);
+    }
 }
 
 export default userApi;

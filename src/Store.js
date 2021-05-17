@@ -5,7 +5,7 @@ import { categoryListReducer, productCategoryReducer, productCatDetailReducer, s
 import { flashSaleListReducer } from './Reducer/FlashSaleReducer';
 import { listRecommendProductReducer } from './Reducer/RecommendProductsReducer';
 import { shopeeMallListReducer } from './Reducer/ShopeeMallReducer';
-import { checkOtpCode, userRegisterReducer, userSigninReducer } from './Reducer/UserReducer';
+import { checkOtpCode, userRegisterReducer, userSigninGGReducer, userSigninReducer, userUpdateReducer } from './Reducer/UserReducer';
 
 
 const initialState = {
@@ -23,6 +23,7 @@ const initialState = {
 
 const reducer = combineReducers(
     {
+        userUpdate: userUpdateReducer,
         codeotp: checkOtpCode,
         userRegister: userRegisterReducer,
         cart: cartReducer,
@@ -32,6 +33,7 @@ const reducer = combineReducers(
         flashSaleList: flashSaleListReducer,
         shopeeMallList: shopeeMallListReducer,
         userSignin: userSigninReducer,
+        userSigninGG: userSigninGGReducer,
         productsCategory: productCategoryReducer,
         recommendProductsList: listRecommendProductReducer,
     }
