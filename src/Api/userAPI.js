@@ -13,9 +13,9 @@ const userApi = {
         const url = '/login';
         return axiosClient.post(url, payload);
     },
-    signInFacebook: () => {
+    signInFacebook: (payload) => {
         const url = '/login/facebook';
-        return axiosClient.get(url);
+        return axiosClient.post(url, payload);
     },
     signInGoogle: (payload) => {
         const url = '/login/google';
@@ -24,6 +24,10 @@ const userApi = {
     updateUser: (id, payload) => {
         const url = `/home/users/${id}/username`;
         return axiosClient.put(url, payload);
+    },
+    listUser: () => {
+        const url = '/home/users';
+        return axiosClient.get(url);
     }
 }
 

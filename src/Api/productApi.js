@@ -10,6 +10,11 @@ export const productAPI = {
     get: (id) => {
         const url = `/home/categories/product-details/${id}`;
         return axiosClient.get(url);
+    },
+    getRecommender: (id, params) => {
+        const queryParams = queryString.stringify(params);
+        const url = `/home/users/${id}/recommender?${queryParams}`;
+        return axiosClient.get(url);
     }
 
 }

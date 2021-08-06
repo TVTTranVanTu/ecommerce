@@ -1,11 +1,26 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thuck from 'redux-thunk';
 import { cartReducer } from './Reducer/CartReducer';
-import { categoryListReducer, productCategoryReducer, productCatDetailReducer, subCategoryListReducer } from './Reducer/CategorysReducer';
 import { flashSaleListReducer } from './Reducer/FlashSaleReducer';
 import { listRecommendProductReducer } from './Reducer/RecommendProductsReducer';
 import { shopeeMallListReducer } from './Reducer/ShopeeMallReducer';
-import { checkOtpCode, userRegisterReducer, userSigninGGReducer, userSigninReducer, userUpdateReducer } from './Reducer/UserReducer';
+
+import {
+    categoryListReducer,
+    productCategoryReducer,
+    productCatDetailReducer,
+    subCategoryListReducer
+} from './Reducer/CategorysReducer';
+import {
+    checkOtpCode,
+    userListReducer,
+    userRegisterReducer,
+    userSigninFBReducer,
+    userSigninGGReducer,
+    userSigninReducer,
+    userUpdateReducer
+} from './Reducer/UserReducer';
+import { orderCreateReducer } from './Reducer/OrderReducers';
 
 
 const initialState = {
@@ -18,15 +33,20 @@ const initialState = {
         cartItems: localStorage.getItem('cartItems')
             ? JSON.parse(localStorage.getItem('cartItems'))
             : [],
+        shippingAddress: localStorage.getItem('shippingAddress')
+            ? JSON.parse(localStorage.getItem('shippingAddress'))
+            : {},
     },
 };
 
 const reducer = combineReducers(
     {
+        userList: userListReducer,
         userUpdate: userUpdateReducer,
         codeotp: checkOtpCode,
         userRegister: userRegisterReducer,
         cart: cartReducer,
+        orderCreate: orderCreateReducer,
         productDetail: productCatDetailReducer,
         subCategoryList: subCategoryListReducer,
         categoryList: categoryListReducer,
@@ -34,6 +54,7 @@ const reducer = combineReducers(
         shopeeMallList: shopeeMallListReducer,
         userSignin: userSigninReducer,
         userSigninGG: userSigninGGReducer,
+        userSigninFB: userSigninFBReducer,
         productsCategory: productCategoryReducer,
         recommendProductsList: listRecommendProductReducer,
     }

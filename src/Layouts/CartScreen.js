@@ -50,7 +50,7 @@ function CartScreen(props) {
                                 </div>
                                 {cartItems.length === 0 ?
                                     (<MessageBox>
-                                        Chưa có sản phẩm nào .&nbsp;<Link to="/pet-food">Mua hàng</Link>
+                                        Chưa có sản phẩm nào .&nbsp;<Link to="/">Mua hàng</Link>
                                     </MessageBox>) : (
                                         <div className="cart-item Ssi6z2">
                                             {
@@ -128,7 +128,8 @@ function CartScreen(props) {
                             <span className="sub__total">
                                 {cartItems.reduce((a, b) => a + b.productPrice * b.qty, 0).toLocaleString('vi-VN')} đ
                             </span>
-                            <button type="button" className="ant-btn ant-btn-primary" onClick={checkoutHandler} disabled={cartItems.length === 0} >Tiến hành thanh toán</button>
+                            <button type="button" className="ant-btn ant-btn-primary" onClick={checkoutHandler} disabled={cartItems.length === 0}  >Tiến hành thanh toán</button>
+
                         </div>
                     </div>
                 </div>

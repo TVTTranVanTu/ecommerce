@@ -13,7 +13,13 @@ function Topbar(props) {
         <div className="topbar">
             <div className="container">
                 <div className="topbar__left">
-                    <Link to="/seller-login" className="space">Kênh người bán</Link>
+                    {
+                        userInfo ? (
+                            <a className="space" href="https://ecommerce-seller.surge.sh">Kênh người bán</a>
+                        ) : (
+                            <Link to="/seller-login" className="space">Kênh người bán</Link>
+                        )
+                    }
                     <Link to="/taiungdung" className="space">Tải ứng dụng</Link>
                     <div className="space space-end">Kết nối</div>
                     <div className="social">

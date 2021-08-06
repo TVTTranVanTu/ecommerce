@@ -17,6 +17,9 @@ import FlashSalePage from './Layouts/FlashSalePage';
 import ShopeeMallPage from './Layouts/ShopeeMallPage';
 import SingIn from './Layouts/SignIn';
 import FormInfo from './Layouts/FormInfo';
+import ShippingAddress from './Layouts/ShippingAddress';
+import PaymentOrder from './Layouts/PaymentOrder';
+import RecommendPage from './Layouts/RecommendPage';
 
 function App() {
   return (
@@ -41,12 +44,20 @@ function App() {
               render={(props) => { return <PageLayout content={<SingIn {...props} />} /> }} />
             <Route
               exact
-              path="/form-info.:id"
+              path="/form-info"
               render={(props) => { return <PageLayout content={<FormInfo {...props} />} /> }} />
             <Route
               exact
               path="/register"
               render={(props) => { return <PageLayout content={<Register {...props} />} /> }} />
+            <Route
+              exact
+              path="/shipping"
+              render={(props) => { return <PageLayout content={<ShippingAddress {...props} />} /> }} />
+            <Route
+              exact
+              path="/payment"
+              render={(props) => { return <PageLayout content={<PaymentOrder {...props} />} /> }} />
             <Route
               exact
               path="/seller-login"
@@ -76,6 +87,10 @@ function App() {
               exact
               path="/shopee-mall"
               render={(props) => { return <PageLayout content={<ShopeeMallPage {...props} />} /> }} />
+            <Route
+              exact
+              path="/daily_discover"
+              render={(props) => { return <PageLayout content={<RecommendPage {...props} />} /> }} />
           </Switch>
         </div>
         <Footer />

@@ -141,15 +141,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            button {
+                cursor: pointer;
+            }
             .shopee-icon-button--left {
                 text-align: right;
                 margin-right: 0.9375rem;
+                cursor: pointer;
             }
             .shopee-icon-button {
                 color: rgba(0, 0, 0, 0.4);
                 min-width: 2.5rem;
                 height: 1.875rem;
                 border: none;
+                cursor: pointer;
             }
             .shopee-button-no-outline {
                 padding: 0px;
@@ -167,6 +172,7 @@
             .shopee-icon-button--right {
                 text-align: left;
                 margin-left: 0.9375rem;
+                cursor: pointer;
             }
             .shopee-button-solid {
                 color: #fff;

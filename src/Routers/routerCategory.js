@@ -1,10 +1,11 @@
 import React from 'react';
-import { Switch, useParams, Route } from 'react-router';
+import { Switch, useParams, Route } from 'react-router-dom';
 import FilterCategory from '../Layouts/FilterCategory';
 import PageLayout from '../Layouts/PageLayout';
 
 function RouterCategory(props) {
     const { flug } = useParams();
+    console.log(flug);
     return (
         <Switch>
             <Route
@@ -12,7 +13,6 @@ function RouterCategory(props) {
                 path={`/${flug}.cat:id`}
                 render={(props) => { return <PageLayout content={<FilterCategory {...props} />} /> }}
             />
-
         </Switch>
     );
 }

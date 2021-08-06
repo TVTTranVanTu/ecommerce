@@ -1,4 +1,8 @@
-import { SHOPEEMALL_LIST_FAIL, SHOPEEMALL_LIST_REQUEST, SHOPEEMALL_LIST_SUCCESS } from "../Constants/ShopeeMallConstant"
+import {
+    SHOPEEMALL_LIST_FAIL,
+    SHOPEEMALL_LIST_REQUEST,
+    SHOPEEMALL_LIST_SUCCESS
+} from "../Constants/ShopeeMallConstant"
 import Data from "../Data"
 
 export const listShopeeMallProducts = () => async (dispatch) => {

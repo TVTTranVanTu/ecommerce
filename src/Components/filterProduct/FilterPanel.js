@@ -13,7 +13,6 @@ function FilterPanel(props) {
     const { loading, error, subCategories } = subCategoryList;
     const { id } = props;
     let newId = Number(id.split('.', 1)[0]);
-    console.log("newId", newId);
     useEffect(() => {
         dispatch(listSubCategory(newId))
     }, [dispatch, newId]);

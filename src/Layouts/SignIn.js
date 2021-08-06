@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
-import { siginToGoogle, signin } from '../Actions/UserAction';
+import { siginToFacebook, siginToGoogle, signin } from '../Actions/UserAction';
 import MessageBox from '../Components/boxInfor/MessageBox';
 function SingIn(props) {
 
@@ -15,23 +15,36 @@ function SingIn(props) {
             Image: res.profileObj.imageUrl,
             ProviderId: 'Google'
         };
+
         dispatch(siginToGoogle(googleresponse));
     };
+
+    function signupFB(res) {
+        const facebookresponse = {
+            Name: res.name,
+            email: res.email,
+            token: res.accessToken,
+            Image: res.picture.data.url,
+            ProviderId: 'Facebook'
+        };
+        dispatch(siginToFacebook(facebookresponse));
+    };
+
+    const dispatch = useDispatch();
+
     const userSigninGG = useSelector(state => state.userSigninGG);
     const { data } = userSigninGG;
 
+    const userSigninFB = useSelector(state => state.userSigninFB);
+    const { datafb } = userSigninFB;
 
-    if (data) {
-        const { id } = data;
-        props.history.push(`/form-info.${id}`);
-    }
+
 
     const redirect = props.location.search
         ? props.location.search.split('=')[1]
         : '/';
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const dispatch = useDispatch();
 
     const userSignin = useSelector((state) => state.userSignin);
     const { loading, error, userInfo } = userSignin;
@@ -44,11 +57,32 @@ function SingIn(props) {
         var res = response.profileObj;
         signup(response);
     }
+
+    const responseFacebook = (response) => {
+        var res = response.profileObj;
+        signupFB(response);
+    }
     useEffect(() => {
         if (userInfo) {
             props.history.push(redirect);
         }
-    }, [props.history, redirect, userInfo]);
+        if (data) {
+            if (data.username === null) {
+                props.history.push(`/form-info`);
+            }
+            else {
+                dispatch(signin(data.username, data.password));
+            }
+        };
+        if (datafb) {
+            if (datafb.username === null) {
+                props.history.push(`/form-info`);
+            }
+            else {
+                dispatch(signin(datafb.username, datafb.password));
+            }
+        }
+    }, [props.history, redirect, userInfo, data, datafb]);
     return (
         <div style={{
             backgroundColor: "rgb(238, 77, 45)"
@@ -86,21 +120,23 @@ function SingIn(props) {
                                 <div className="formLogin__or">
                                     <span>Hoặc</span>
                                 </div>
-
                                 <div className="_1ix216">
-                                    <button className="dJsOUU _1A307B _1tEaLw _1A307B _2ph_NL">
-                                        <div className="_1b1OLX">
-                                            <div className="_1JEYOo social-white-background social-white-fb-png">
-                                            </div>
-                                        </div>
-                                        <div className="_1iDCwS _28-Tq8">Facebook</div>
-                                    </button>
+                                    <FacebookLogin
+                                        cssClass="dJsOUU _1A307B _1tEaLw _1A307B _2ph_NL"
+                                        appId="1813566862163308"
+                                        autoLoad={false}
+                                        fields="name,email,picture"
+                                        callback={responseFacebook}
+                                        textButton="Facebook"
+                                        icon="fa-facebook"
+                                    ></FacebookLogin>
                                     <GoogleLogin
                                         className="dJsOUU _1A307B _1tEaLw _1A307B _1SPkQc"
-                                        clientId="662863314372-lobjk150l82p9r0p60m3th41of3rau1a.apps.googleusercontent.com"
+                                        clientId="662863314372-eihnc6tpkmgvdqkgs0179di65p9mvik7.apps.googleusercontent.com"
                                         buttonText="Google"
                                         onSuccess={responseGoogle}
-                                        onFailure={responseGoogle} ></GoogleLogin>
+                                        onFailure={responseGoogle} >
+                                    </GoogleLogin>
                                     <button className="dJsOUU _1A307B _1tEaLw _1A307B nvH7Oz">
                                         <div className="_1b1OLX">
                                             <div className="_1JEYOo social-white-background social-white-apple-png">
@@ -118,11 +154,9 @@ function SingIn(props) {
                                 </p>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

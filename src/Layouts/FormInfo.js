@@ -7,7 +7,7 @@ import { USER_UPDATE_RESET } from '../Constants/UserConstants';
 
 function FormInfo(props) {
     const [name, setName] = useState('');
-    const userId = props.match.params.id;
+    const [email, setEmail] = useState('');
     const userUpdate = useSelector((state) => state.userUpdate);
     const {
         loading: loadingUpdate,
@@ -21,22 +21,36 @@ function FormInfo(props) {
 
 
 
+    const userSigninFB = useSelector(state => state.userSigninFB);
+    const { datafb } = userSigninFB;
 
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        if (data) {
+            const { id, email } = data;
+            setEmail(email)
+            dispatch(updateUser(id, name));
+        }
+        if (datafb) {
+            const { id, email } = datafb;
+            setEmail(email);
+            dispatch(updateUser(id, name));
+        }
+    };
     useEffect(() => {
         if (successUpdate) {
+            if (data) {
+                dispatch(signin(name, data.password));
+            }
+            if (datafb) {
+                dispatch(signin(name, datafb.password));
+            }
             dispatch({ type: USER_UPDATE_RESET });
             props.history.push('/');
         }
     }, [dispatch, props.history, successUpdate]);
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(updateUser(userId, name));
-        if (data) {
-            const { password } = data;
-            dispatch(signin(name, password));
-        }
-    };
     return (
         <div className="_2XRSuf">
             <form onSubmit={submitHandler}>
@@ -69,7 +83,7 @@ function FormInfo(props) {
                         </div>
                         <div className="_18qY2-">
                             <div className="_3mizNj">
-                                <input className="yReWDs" type="text" placeholder="Email (Không bắt buộc)" name="email" value={data.email} />
+                                <input className="yReWDs" type="text" placeholder="Email (Không bắt buộc)" name="email" defaultValue={data ? data.email : datafb ? datafb.email : email} />
                             </div>
                             <div className="_2RHkvG"></div>
                         </div>
