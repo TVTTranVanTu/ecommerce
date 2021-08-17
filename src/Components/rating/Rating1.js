@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Rating(props) {
-  const { item } = props;
-  const { value } = props;
+function Rating1(props) {
+  const [value, setValue] = useState(props.value);
+  console.log(value);
   return (
     <div className="rating">
       <div className="shopee-rating-stars">
@@ -10,7 +10,8 @@ function Rating(props) {
           <div className="shopee-rating-stars__star-wrapper">
             <div
               className="shopee-rating-stars__lit"
-              style={{ width: `${item >= 1 ? "100%" : "0"}` }}
+              style={{ width: `${value >= 1 ? "100%" : "0"}` }}
+              onClick={() => setValue(1)}
             >
               <svg
                 enableBackground="new 0 0 15 15"
@@ -45,7 +46,8 @@ function Rating(props) {
           <div className="shopee-rating-stars__star-wrapper">
             <div
               className="shopee-rating-stars__lit"
-              style={{ width: `${item >= 2 ? "100%" : "0"}` }}
+              style={{ width: `${value >= 2 ? "100%" : "0"}` }}
+              onClick={() => setValue(2)}
             >
               <svg
                 enableBackground="new 0 0 15 15"
@@ -80,7 +82,8 @@ function Rating(props) {
           <div className="shopee-rating-stars__star-wrapper">
             <div
               className="shopee-rating-stars__lit"
-              style={{ width: `${item >= 3 ? "100%" : "0"}` }}
+              style={{ width: `${value >= 3 ? "100%" : "0"}` }}
+              onClick={() => setValue(3)}
             >
               <svg
                 enableBackground="new 0 0 15 15"
@@ -115,7 +118,8 @@ function Rating(props) {
           <div className="shopee-rating-stars__star-wrapper">
             <div
               className="shopee-rating-stars__lit"
-              style={{ width: `${item >= 4 ? "100%" : "0"}` }}
+              style={{ width: `${value >= 4 ? "100%" : "0"}` }}
+              onClick={() => setValue(4)}
             >
               <svg
                 enableBackground="new 0 0 15 15"
@@ -150,7 +154,8 @@ function Rating(props) {
           <div className="shopee-rating-stars__star-wrapper">
             <div
               className="shopee-rating-stars__lit"
-              style={{ width: `${item >= 5 ? "100%" : "0"}` }}
+              style={{ width: `${value >= 5 ? "100%" : "0"}` }}
+              onClick={() => setValue(5)}
             >
               <svg
                 enableBackground="new 0 0 15 15"
@@ -188,4 +193,4 @@ function Rating(props) {
   );
 }
 
-export default Rating;
+export default Rating1;

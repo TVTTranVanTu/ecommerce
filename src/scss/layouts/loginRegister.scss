@@ -132,6 +132,11 @@
                     cursor: pointer;
                 }
             }
+            .invalid {
+                padding: 0;
+                text-align: left;
+                color: #ee4d2d;
+            }
         }
         .ant-btn {
             width: 100%;

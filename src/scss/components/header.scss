@@ -3,10 +3,13 @@
     .container {
         .header__logo {
             width: 15%;
-            .shopee-svg-icon {
-                width: 162px;
-                height: 50px;
-                fill: #fff;
+            .logo_image {
+                width: 100px;
+                margin-left: 20px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
         .header__search {
@@ -46,7 +49,7 @@
                 }
 
                 .btn-solid-primary {
-                    background: #fb5533;
+                    background: #40407a;
                     color: #fff;
                 }
                 .btn--s {
@@ -66,7 +69,7 @@
                 width: 100%;
                 .list-type-product {
                     display: flex;
-                    margin-top: 5px;
+                    margin-top: 10px;
                     height: 20px;
                     font-size: 12px;
                     font-weight: 300;

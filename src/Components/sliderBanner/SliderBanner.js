@@ -1,77 +1,122 @@
-import React from 'react';
+import React from "react";
 import Slider from "react-slick";
+import banner1 from "../../assets/banner_1.png";
+import banner2 from "../../assets/banner2.png";
+
 function SliderBanner(props) {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000
-    };
-    return (
-        <div className="slider-banner">
-            <div className="slider-show">
-                <Slider {...settings} className="slider">
-                    <div>
-                        <img src="https://cf.shopee.vn/file/9ae3f0fb659615b5ad951fd0b5b0df04_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/2b14b9c3da24c908e6e5b05fae028aa3_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/0a24ff865d9374cb004017e61949fa31_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/0f10bfc1c2f6572ea920f6fee67c77d0_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/dc85afa69822e2e79523295164527448_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/c71c304f4167df6a8de4d112b3a3bd0f_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/bb9f1f6f7f70f78dce75f25268e5943a_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/9d79fb15a8449d308c4b29a1f5534c62_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/0b40f795cc2501da53939ddd558d0f8d_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/7181e13dc7825abf2b5b7e7bda542beb_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/2f0cc25a84da21be51c7d39101d825dd_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/96b37c11076ac4d6091fbe4bc3a439c8_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/e2b9b269cb2a0c1ac2a4d46f7faf80c8_xxhdpi" alt="image1"></img>
-                    </div>
-                    <div>
-                        <img src="https://cf.shopee.vn/file/9ae3f0fb659615b5ad951fd0b5b0df04_xxhdpi" alt="image1"></img>
-                    </div>
-                </Slider>
-            </div>
-            <div className="banners__right-banner">
-                <a className="image-banner" href="#">
-                    <div className="image-banner-content">
-                        <img src="https://cf.shopee.vn/file/82f908174b62bd35017d65e83983c287_xhdpi&quot"></img>
-                    </div>
-                </a>
-                <a className="image-banner" href="#" style={{ marginTop: "0.3125rem" }}>
-                    <div className="image-banner-content">
-                        <img src="https://cf.shopee.vn/file/f30314a7a3b21f65ab1b089a8b11fbab_xhdpi"></img>
-                    </div>
-                </a>
-            </div>
-        </div>
-    );
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+  return (
+    <div className="slider-banner">
+      <div className="slider-show">
+        <Slider {...settings} className="slider">
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/dddf4631638cc2b49b67fd762e07cf5f_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/96c2ce94564152f3ec393d10c82fd96b_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/eb0eaefe649f563308a9f03f9a435961_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/3a33887273b4cf7ff851cca6f4aef3e1_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/433006bef1cc3d67e40d964665e4c1da_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/89d5a37694b6885fd2d658fc21d2bde6_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/40c9a878bb43418193c199b8c6813d9d_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/5f1045c2dd3cbce6289a84925608c731_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/58d782e52ae6bd84960fcdf69d712127_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/cee64f14f364325be6a3a1fcea4cd742_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/4ed46f86bfcbe8d5a037955eb5d4da6c_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/700bfede60a0d443b9092f178b292570_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/489fe7d83286dfe7c0c303a317205bc5_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+          <div>
+            <img
+              src="https://cf.shopee.vn/file/cad02c3d02d423688bf6d5eb803ff2e4_xxhdpi"
+              alt="image1"
+            ></img>
+          </div>
+        </Slider>
+      </div>
+      <div className="banners__right-banner">
+        <a className="image-banner" href="#">
+          <div className="image-banner-content">
+            <img src={banner1} alt="img"></img>
+          </div>
+        </a>
+        <a className="image-banner" href="#" style={{ marginTop: "0.3125rem" }}>
+          <div className="image-banner-content">
+            <img src={banner2} alt="img"></img>
+          </div>
+        </a>
+      </div>
+    </div>
+  );
 }
 
 export default SliderBanner;

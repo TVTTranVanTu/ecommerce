@@ -6,7 +6,6 @@ function CategoryItem(props) {
   let link;
   if (item.categoryName != null) {
     link = item.categoryName.replace(/\s/g, "-") + ".cat" + item.id;
-    console.log(link);
   }
   return (
     <div className="home-category-list__group">

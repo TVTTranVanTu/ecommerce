@@ -1,8 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { checkOtp } from "../Actions/UserAction";
 import CheckOTPBox from "../Components/boxInfor/CheckOTPBox";
+import background from "../assets/background.png";
+import { validateEmail } from "../regex";
 
 function Register(props) {
   const redirect = props.location.search
@@ -10,22 +12,34 @@ function Register(props) {
     : "/";
   const [check, setCheck] = useState(false);
   const [email, setEmail] = useState("");
+  let submit = true;
+  const [errorEmail, setErrorEmail] = useState(false);
+
+  const validate = () => {
+    if (!validateEmail.test(email)) {
+      setErrorEmail(true);
+      submit = false;
+    }
+  };
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(checkOtp(email));
+    validate();
+    submit && dispatch(checkOtp(email));
   };
 
   const checkOtpHandle = () => {
     setCheck(true);
   };
-
+  useEffect(() => {
+    submit = true;
+  }, [errorEmail]);
   return (
     <div>
       <div
         style={{
-          backgroundImage: `url(https://cf.shopee.vn/file/d989a562877074750c02d3bed274ccd8)`,
+          backgroundImage: `url(${background})`,
           width: "65rem",
           height: "37.5rem ",
           width: "100%",
@@ -36,7 +50,7 @@ function Register(props) {
           minWidth: "75rem",
           margin: "0 auto",
           position: "relative",
-          backgroundColor: "rgb(238, 77, 45)",
+          backgroundColor: "#492c7c",
           opacity: `${check === true ? "0.5" : "1"}`,
         }}
       >
@@ -53,8 +67,12 @@ function Register(props) {
                   id="email"
                   placeholder="Nhập vào email ..."
                   required
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setErrorEmail(false);
+                  }}
                 ></input>
+                {errorEmail && <p className="invalid">Email không hợp lệ!</p>}
               </div>
               <button
                 className="mr__bt ant-btn ant-btn-primary btn btn_orange w100"
