@@ -458,15 +458,16 @@
                         svg {
                             width: 14px;
                             height: 14px;
-                            fill: #ee4d2d;
                         }
                     }
                     .shopee-product-rating__content {
                         display: flex;
-                        flex-direction: column;
-                        flex: 1;
                         white-space: pre-wrap;
                         word-break: break-word;
+                        .button_send {
+                            color: #40407a;
+                            cursor: pointer;
+                        }
                     }
 
                     .shopee-product-rating__content {

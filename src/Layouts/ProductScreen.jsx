@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../Actions/CartAction";
-import { productCatDetail } from "../Actions/CategoryAction";
+import { postCommentAction, productCatDetail } from "../Actions/CategoryAction";
 import LoadingBox from "../Components/boxInfor/LoadingBox";
 import MessageBox from "../Components/boxInfor/MessageBox";
 import Rating from "../Components/rating/Rating";
@@ -13,23 +13,30 @@ function ProductScreen(props) {
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
   const { loading, error, productInfo } = productDetail;
+  console.log(productInfo);
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("L");
 
-  if (productInfo) {
+  const postComment = useSelector((state) => state.postComment);
+  const {
+    loading: loadingCreatePost,
+    error: errorCreatePost,
+    success,
+  } = postComment;
+  console.log(postComment);
+  const postCommentHandle = (productInfo) => {
     const post = {
-      comment: comment,
+      content: comment,
       rating: star,
       post: {
         id: productInfo.id,
       },
     };
-    const postComment = () => {
-      dispatch(postComment(post));
-    };
-  }
+    console.log(post);
+    dispatch(postCommentAction(post));
+  };
 
   const reductionHandle = () => {
     if (qty > 1) {
@@ -45,7 +52,8 @@ function ProductScreen(props) {
     if (id) {
       dispatch(productCatDetail(id));
     }
-  }, [dispatch, id]);
+    success && setComment("");
+  }, [dispatch, id, success]);
 
   const BuyToCardHandle = () => {
     dispatch(addToCart(id, qty, size));
@@ -207,8 +215,8 @@ function ProductScreen(props) {
                                   <input
                                     className="_2KdYzP iRO3yj"
                                     type="text"
-                                    star={qty}
-                                    onChange={(e) => setQty(e.target.star)}
+                                    value={qty}
+                                    onChange={(e) => setQty(e.target.value)}
                                   />
                                   <button
                                     className="_2KdYzP"
@@ -419,12 +427,12 @@ function ProductScreen(props) {
                               <div className="shopee-rating-stars__star-wrapper">
                                 <div
                                   className="shopee-rating-stars__lit"
-                                  onClick={() => setStar(1)}
                                   style={{
                                     width: `${star >= 1 ? "100%" : "0"}`,
                                   }}
                                 >
                                   <svg
+                                    onClick={() => setStar(1)}
                                     enableBackground="new 0 0 15 15"
                                     viewBox="0 0 15 15"
                                     x="0"
@@ -440,6 +448,7 @@ function ProductScreen(props) {
                                   </svg>
                                 </div>
                                 <svg
+                                  onClick={() => setStar(1)}
                                   enableBackground="new 0 0 15 15"
                                   viewBox="0 0 15 15"
                                   x="0"
@@ -460,9 +469,9 @@ function ProductScreen(props) {
                                   style={{
                                     width: `${star >= 2 ? "100%" : "0"}`,
                                   }}
-                                  onClick={() => setStar(2)}
                                 >
                                   <svg
+                                    onClick={() => setStar(2)}
                                     enableBackground="new 0 0 15 15"
                                     viewBox="0 0 15 15"
                                     x="0"
@@ -478,6 +487,7 @@ function ProductScreen(props) {
                                   </svg>
                                 </div>
                                 <svg
+                                  onClick={() => setStar(2)}
                                   enableBackground="new 0 0 15 15"
                                   viewBox="0 0 15 15"
                                   x="0"
@@ -516,6 +526,7 @@ function ProductScreen(props) {
                                   </svg>
                                 </div>
                                 <svg
+                                  onClick={() => setStar(3)}
                                   enableBackground="new 0 0 15 15"
                                   viewBox="0 0 15 15"
                                   x="0"
@@ -536,9 +547,9 @@ function ProductScreen(props) {
                                   style={{
                                     width: `${star >= 4 ? "100%" : "0"}`,
                                   }}
-                                  onClick={() => setStar(4)}
                                 >
                                   <svg
+                                    onClick={() => setStar(4)}
                                     enableBackground="new 0 0 15 15"
                                     viewBox="0 0 15 15"
                                     x="0"
@@ -554,6 +565,7 @@ function ProductScreen(props) {
                                   </svg>
                                 </div>
                                 <svg
+                                  onClick={() => setStar(4)}
                                   enableBackground="new 0 0 15 15"
                                   viewBox="0 0 15 15"
                                   x="0"
@@ -574,9 +586,9 @@ function ProductScreen(props) {
                                   style={{
                                     width: `${star >= 5 ? "100%" : "0"}`,
                                   }}
-                                  onClick={() => setStar(5)}
                                 >
                                   <svg
+                                    onClick={() => setStar(5)}
                                     enableBackground="new 0 0 15 15"
                                     viewBox="0 0 15 15"
                                     x="0"
@@ -592,6 +604,7 @@ function ProductScreen(props) {
                                   </svg>
                                 </div>
                                 <svg
+                                  onClick={() => setStar(5)}
                                   enableBackground="new 0 0 15 15"
                                   viewBox="0 0 15 15"
                                   x="0"
@@ -618,6 +631,12 @@ function ProductScreen(props) {
                           value={comment}
                           onChange={(e) => setComment(e.target.value)}
                         />
+                        <div
+                          className="button_send"
+                          onClick={() => postCommentHandle(productInfo)}
+                        >
+                          <i className="fas fa-share"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -674,7 +693,7 @@ function ProductScreen(props) {
                           {item.userName}
                         </a>
                         <div className="shopee-product-rating__rating">
-                          <Rating item={item.evalute}></Rating>
+                          <Rating item={item.rating}></Rating>
                         </div>
                         <div className="shopee-product-rating__content">
                           {item.content}

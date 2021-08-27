@@ -19,6 +19,7 @@ import FormInfo from "./Layouts/FormInfo";
 import ShippingAddress from "./Layouts/ShippingAddress";
 import PaymentOrder from "./Layouts/PaymentOrder";
 import RecommendPage from "./Layouts/RecommendPage";
+import BillOrder from "./Components/accountInfo/BillOrder";
 
 function App() {
   return (
@@ -100,6 +101,13 @@ function App() {
               path="/account"
               render={(props) => {
                 return <PageLayout content={<UserProfile {...props} />} />;
+              }}
+            />
+            <Route
+              exact
+              path="/account/order"
+              render={(props) => {
+                return <UserProfile content={<BillOrder {...props} />} />;
               }}
             />
             <Route

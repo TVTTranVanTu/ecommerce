@@ -1,10 +1,25 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { listProductSearch } from "../Actions/SearchProductAction";
 import logo from "../assets/logo1.png";
 function Header(props) {
   const cart = useSelector((state) => state.cart);
+  const [keyword, setKeyword] = useState("");
   const { cartItems } = cart;
+  const dispatch = useDispatch();
+  const [filters, setFilters] = useState({
+    limit: 20,
+    page: 0,
+  });
+
+  const listProductsSearch = useSelector((state) => state.listProductsSearch);
+  const { loading, error, data } = listProductsSearch;
+
+  const searchListProduct = () => {
+    dispatch(listProductSearch(keyword, filters));
+  };
   return (
     <div className="header">
       <div className="container">
@@ -22,12 +37,15 @@ function Header(props) {
                 <input
                   className="search-input"
                   placeholder="Nhập vào mặt hàng bạn muốn tìm ..."
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
                 ></input>
               </form>
             </div>
             <button
               type="button"
               className="btn btn-solid-primary btn--s btn--inline"
+              onClick={searchListProduct}
             >
               <svg
                 height="19"

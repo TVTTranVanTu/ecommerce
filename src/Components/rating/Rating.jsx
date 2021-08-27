@@ -2,7 +2,6 @@ import React from "react";
 
 function Rating(props) {
   const { item } = props;
-  const { value } = props;
   return (
     <div className="rating">
       <div className="shopee-rating-stars">

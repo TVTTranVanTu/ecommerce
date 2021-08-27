@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+import BillOrder from "../Components/accountInfo/BillOrder";
+import NotificationOrder from "../Components/accountInfo/NotificationOrder";
 import Profile from "../Components/accountInfo/Profile";
 import UserPhone from "../Components/accountInfo/UserPhone";
 
@@ -33,7 +35,7 @@ function UserProfile(props) {
                     <path
                       d="M8.54 0L6.987 1.56l3.46 3.48L12 3.48M0 8.52l.073 3.428L3.46 12l6.21-6.18-3.46-3.48"
                       fill="#9B9B9B"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                     ></path>
                   </svg>
                   Sửa hồ sơ
@@ -67,7 +69,7 @@ function UserProfile(props) {
                             cy="4.5"
                             fill="none"
                             r="3.8"
-                            stroke-miterlimit="10"
+                            strokeMiterlimit="10"
                           ></circle>
                           <path
                             d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6"
@@ -83,27 +85,16 @@ function UserProfile(props) {
                     </div>
                   </div>
                 </Link>
-                <ul
-                  style={{
-                    display: `${hidden === "account" ? "block" : "none"}`,
-                  }}
-                >
-                  <li>
-                    <Link to="account">Hồ sơ</Link>
-                  </li>
-                  <li>Địa chỉ</li>
-                  <li>Mật khẩu</li>
-                </ul>
               </li>
               <li>
-                <Link to="/account">
+                <Link to="/account/order">
                   <div className="sidebar-menu-entry">
                     <div
                       className="sidebar-menu-entry__icon"
                       style={{ backgroundColor: "rgb(68, 181, 255)" }}
                     >
                       <svg
-                        enable-background="new 0 0 15 15"
+                        enableBackground="new 0 0 15 15"
                         viewBox="0 0 15 15"
                         x="0"
                         y="0"
@@ -114,9 +105,9 @@ function UserProfile(props) {
                           <rect
                             fill="none"
                             height="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeMiterlimit="10"
                             width="8"
                             x="4.5"
                             y="1.5"
@@ -124,15 +115,15 @@ function UserProfile(props) {
                           <polyline
                             fill="none"
                             points="2.5 1.5 2.5 13.5 12.5 13.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeMiterlimit="10"
                           ></polyline>
                           <line
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeMiterlimit="10"
                             x1="6.5"
                             x2="10.5"
                             y1="4"
@@ -140,9 +131,9 @@ function UserProfile(props) {
                           ></line>
                           <line
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeMiterlimit="10"
                             x1="6.5"
                             x2="10.5"
                             y1="6.5"
@@ -150,9 +141,9 @@ function UserProfile(props) {
                           ></line>
                           <line
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeMiterlimit="10"
                             x1="6.5"
                             x2="10.5"
                             y1="9"
@@ -166,11 +157,10 @@ function UserProfile(props) {
                 </Link>
               </li>
               <li>
-                <Link
+                <div
                   onClick={() => {
                     setHidden("tb");
                   }}
-                  to="/account"
                 >
                   <div className="sidebar-menu-entry">
                     <div
@@ -178,7 +168,7 @@ function UserProfile(props) {
                       style={{ backgroundColor: "rgb(238, 77, 45)" }}
                     >
                       <svg
-                        enable-background="new 0 0 15 15"
+                        enableBackground="new 0 0 15 15"
                         viewBox="0 0 15 15"
                         x="0"
                         y="0"
@@ -188,14 +178,14 @@ function UserProfile(props) {
                           <path
                             d="m12 10.2 1.5 2h-12l1.5-2v-7.4c0-.5.5-1 1-1h7c .6 0 1 .5 1 1z"
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeMiterlimit="10"
                           ></path>
                           <path
                             d="m6 2c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5"
                             fill="none"
-                            stroke-miterlimit="10"
+                            strokeMiterlimit="10"
                           ></path>
                           <path d="m5.8 13.5c.4.6 1 1 1.8 1s1.4-.4 1.8-1z"></path>
                         </g>
@@ -203,20 +193,31 @@ function UserProfile(props) {
                     </div>
                     <div className="sidebar-menu-entry__text">Thông báo</div>
                   </div>
-                </Link>
+                </div>
                 <ul
                   style={{ display: `${hidden === "tb" ? "block" : "none"}` }}
                   className="subnav"
                 >
-                  <li>Cập nhật đơn hàng</li>
-                  <li>Khuyến Mãi</li>
+                  <li>
+                    <Link to="/account/notification">Cập nhật đơn hàng</Link>
+                  </li>
                 </ul>
               </li>
             </ul>
           </div>
           <div>
             <Route path="/account" exact component={Profile}></Route>
-            <Route path="/account/phone" exact component={UserPhone}></Route>
+            <Route
+              path="/account/phonenumber"
+              exact
+              component={UserPhone}
+            ></Route>
+            <Route path="/account/order" exact component={BillOrder}></Route>
+            <Route
+              path="/account/notification"
+              exact
+              component={NotificationOrder}
+            ></Route>
           </div>
         </div>
       </div>

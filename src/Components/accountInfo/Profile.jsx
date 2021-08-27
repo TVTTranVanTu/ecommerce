@@ -36,7 +36,7 @@ function Profile(props) {
                   <input
                     type="text"
                     placeholder="Lâm Ngọc Huy"
-                    maxlength="255"
+                    maxLength="255"
                   ></input>
                 </div>
               </div>
@@ -68,7 +68,7 @@ function Profile(props) {
               <div className="input-with-label__content">
                 <div className="my-account__inline-container">
                   <div className="my-account__input-text"></div>
-                  <Link to="/account/phone">
+                  <Link to="/account/phonenumber">
                     <button
                       type="button"
                       className="my-account__no-background-button my-account-profile__change-button"
@@ -90,7 +90,7 @@ function Profile(props) {
                   <input
                     type="text"
                     placeholder="lam_ngoc_huy"
-                    maxlength="255"
+                    maxLength="255"
                   ></input>
                 </div>
               </div>
@@ -103,7 +103,7 @@ function Profile(props) {
               </div>
               <div className="input-with-label__content">
                 <div className="my-account-profile__gender">
-                  <label for="nam" className="radio">
+                  <label htmlFor="nam" className="radio">
                     <input
                       type="radio"
                       name="gender"
@@ -113,7 +113,7 @@ function Profile(props) {
                     <div className="radio__radio"></div>
                     Nam
                   </label>
-                  <label for="nu" className="radio">
+                  <label htmlFor="nu" className="radio">
                     <input
                       type="radio"
                       name="gender"
@@ -123,7 +123,7 @@ function Profile(props) {
                     <div className="radio__radio"></div>
                     Nữ
                   </label>
-                  <label for="khac" className="radio">
+                  <label htmlFor="khac" className="radio">
                     <input
                       type="radio"
                       name="gender"

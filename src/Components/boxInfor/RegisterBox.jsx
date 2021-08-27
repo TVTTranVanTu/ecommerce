@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../Actions/UserAction";
-import MessageBox from "../boxInfor/MessageBox";
-import LoadingBox from "../boxInfor/LoadingBox";
+import MessageBox from "./MessageBox";
+import LoadingBox from "./LoadingBox";
 import { validatePassword, validUserName } from "../../regex";
 function RegisterBox(props) {
   const { redirect } = props;

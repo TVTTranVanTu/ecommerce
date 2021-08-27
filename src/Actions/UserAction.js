@@ -3,6 +3,9 @@ import {
   CHECK_OTP_FAIL,
   CHECK_OTP_REQUEST,
   CHECK_OTP_SUCCESS,
+  USER_DETAIL_FAIL,
+  USER_DETAIL_REQUEST,
+  USER_DETAIL_SUCCESS,
   USER_LIST_FAIL,
   USER_LIST_REQUEST,
   USER_LIST_SUCCESS,
@@ -61,6 +64,7 @@ export const signin = (username, password) => async (dispatch) => {
   try {
     const data = await userApi.signIn({ username, password });
     const { jwttoken } = data;
+    console.log(jwttoken);
     localStorage.setItem("access_token", jwttoken);
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
@@ -131,6 +135,20 @@ export const listUsers = () => async (dispatch) => {
         ? error.response.data.message
         : error.message;
     dispatch({ type: USER_LIST_FAIL, payload: message });
+  }
+};
+
+export const userDetailAction = (id) => async (dispatch) => {
+  dispatch({ type: USER_DETAIL_REQUEST });
+  try {
+    const { data } = await userApi.userDetail(id);
+    dispatch({ type: USER_DETAIL_SUCCESS, payload: data });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: USER_DETAIL_FAIL, error: message });
   }
 };
 
