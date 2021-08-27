@@ -20,6 +20,7 @@ import ShippingAddress from "./Layouts/ShippingAddress";
 import PaymentOrder from "./Layouts/PaymentOrder";
 import RecommendPage from "./Layouts/RecommendPage";
 import BillOrder from "./Components/accountInfo/BillOrder";
+import ProductFromSearch from "./Layouts/ProductFromSearch";
 
 function App() {
   return (
@@ -98,6 +99,15 @@ function App() {
             />
             <Route
               exact
+              path="/search/:name?"
+              render={(props) => {
+                return (
+                  <PageLayout content={<ProductFromSearch {...props} />} />
+                );
+              }}
+            />
+            <Route
+              exact
               path="/account"
               render={(props) => {
                 return <PageLayout content={<UserProfile {...props} />} />;
@@ -131,6 +141,7 @@ function App() {
                 return <PageLayout content={<ShopeeMallPage {...props} />} />;
               }}
             />
+
             <Route
               exact
               path="/daily_discover"

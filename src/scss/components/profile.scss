@@ -165,7 +165,6 @@
         }
         .my-account-profile__right {
             width: 17.5rem;
-            display: flex;
             -webkit-box-pack: center;
             justify-content: center;
             overflow: hidden;
@@ -198,9 +197,19 @@
                         background-image: url(https://cf.shopee.vn/file/c0461876e0a89c129b9a8fd5cffcb37d_tn);
                     }
                 }
-                .avatar-uploader__file-input {
-                    display: none;
-                    line-height: normal;
+
+                .upload_image {
+                    position: relative;
+                    cursor: pointer;
+                    .avatar-uploader__file-input {
+                        line-height: normal;
+                        position: absolute;
+                        left: 0;
+                        opacity: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: 100%;
+                    }
                 }
                 .btn {
                     overflow: hidden;
@@ -234,6 +243,7 @@
                 .btn--inline {
                     display: inline-flex;
                 }
+
                 .avatar-uploader__text-container {
                     margin-top: 12px;
                     display: block;
@@ -246,4 +256,10 @@
             }
         }
     }
+}
+.save-button {
+    background: #05a !important;
+    color: #fff !important;
+    position: absolute;
+    bottom: 60px;
 }

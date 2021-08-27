@@ -14,6 +14,7 @@ import {
 } from "./Reducer/CategorysReducer";
 import {
   checkOtpCode,
+  updateUserDetailReducer,
   userDetailReducer,
   userListReducer,
   userRegisterReducer,
@@ -22,7 +23,7 @@ import {
   userSigninReducer,
   userUpdateReducer,
 } from "./Reducer/UserReducer";
-import { orderCreateReducer } from "./Reducer/OrderReducers";
+import { orderCreateReducer, orderListReducer } from "./Reducer/OrderReducers";
 import { productSearchReducer } from "./Reducer/SearchProductReducer";
 
 const initialState = {
@@ -48,7 +49,9 @@ const reducer = combineReducers({
   userDetail: userDetailReducer,
   userRegister: userRegisterReducer,
   cart: cartReducer,
+  orderList: orderListReducer,
   listProductsSearch: productSearchReducer,
+  updateUserDetail: updateUserDetailReducer,
   postComment: postCommentReducer,
   orderCreate: orderCreateReducer,
   productDetail: productCatDetailReducer,

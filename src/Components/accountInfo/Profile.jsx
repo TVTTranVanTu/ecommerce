@@ -1,7 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userDetailAction } from "../../Actions/UserAction";
+import { UPDATE_USER_DETAIL_RESET } from "../../Constants/UserConstants";
+import UserInfor from "./UserInfor";
 
 function Profile(props) {
+  const dispatch = useDispatch();
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+
+  const userDetail = useSelector((state) => state.userDetail);
+  const { loading: userLoading, error: userError, userInfor } = userDetail;
+
+  const updateUserDetail = useSelector((state) => state.updateUserDetail);
+  const { success } = updateUserDetail;
+  useEffect(() => {
+    userInfo && dispatch(userDetailAction(userInfo.userDto.id));
+    success && dispatch({ type: UPDATE_USER_DETAIL_RESET });
+  }, [dispatch, userInfo, success]);
   return (
     <div className="my-account-section">
       <div className="my-account-section__header">
@@ -12,167 +29,11 @@ function Profile(props) {
           </div>
         </div>
       </div>
-      <div className="my-account-profile">
-        <div className="my-account-profile__left">
-          <div className="input-with-label">
-            <div className="input-with-label__wrapper">
-              <div className="input-with-label__label">
-                <label>Tên đăng nhập</label>
-              </div>
-              <div className="input-with-label__content">
-                <div className="my-account__inline-container">
-                  <div className="my-account__input-text">alex@123</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="input-with-label">
-            <div className="input-with-label__wrapper">
-              <div className="input-with-label__label">
-                <label>Tên</label>
-              </div>
-              <div className="input-with-label__content">
-                <div className="input-with-validator">
-                  <input
-                    type="text"
-                    placeholder="Lâm Ngọc Huy"
-                    maxLength="255"
-                  ></input>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="input-with-label">
-            <div className="input-with-label__wrapper">
-              <div className="input-with-label__label">
-                <label>Email</label>
-              </div>
-              <div className="input-with-label__content">
-                <div className="my-account__inline-container">
-                  <div className="my-account__input-text">ln****@gmail.com</div>
-                  <button
-                    type="button"
-                    className="my-account__no-background-button my-account-profile__change-button"
-                  >
-                    Thay đổi
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="input-with-label">
-            <div className="input-with-label__wrapper">
-              <div className="input-with-label__label">
-                <label>Số điện thoại</label>
-              </div>
-              <div className="input-with-label__content">
-                <div className="my-account__inline-container">
-                  <div className="my-account__input-text"></div>
-                  <Link to="/account/phonenumber">
-                    <button
-                      type="button"
-                      className="my-account__no-background-button my-account-profile__change-button"
-                    >
-                      Thêm
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="input-with-label">
-            <div className="input-with-label__wrapper">
-              <div className="input-with-label__label">
-                <label>Tên Shop</label>
-              </div>
-              <div className="input-with-label__content">
-                <div className="input-with-validator">
-                  <input
-                    type="text"
-                    placeholder="lam_ngoc_huy"
-                    maxLength="255"
-                  ></input>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="input-with-label">
-            <div className="input-with-label__wrapper">
-              <div className="input-with-label__label">
-                <label>Giới tính</label>
-              </div>
-              <div className="input-with-label__content">
-                <div className="my-account-profile__gender">
-                  <label htmlFor="nam" className="radio">
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="nam"
-                      className="radio__input"
-                    />
-                    <div className="radio__radio"></div>
-                    Nam
-                  </label>
-                  <label htmlFor="nu" className="radio">
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="nu"
-                      className="radio__input"
-                    />
-                    <div className="radio__radio"></div>
-                    Nữ
-                  </label>
-                  <label htmlFor="khac" className="radio">
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="khac"
-                      className="radio__input"
-                    />
-                    <div className="radio__radio"></div>
-                    Khác
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="input-with-label">
-            <div className="input-with-label__wrapper">
-              <div className="input-with-label__label">
-                <label>Ngày sinh</label>
-              </div>
-              <div className="input-with-label__content"></div>
-            </div>
-          </div>
-        </div>
-        <div className="my-account-profile__right">
-          <div className="avatar-uploader">
-            <div className="avatar-uploader__avatar">
-              <div
-                className="avatar-uploader__avatar-image"
-                style={{
-                  backgroundImage: `url("https://cf.shopee.vn/file/5f124aa512e665915146f70c5f654b98_tn")`,
-                }}
-              ></div>
-            </div>
-            <input
-              className="avatar-uploader__file-input"
-              type="file"
-              accept=".jpg,.jpeg,.png"
-            />
-            <button type="button" className="btn btn-light btn--m btn--inline">
-              Chọn ảnh
-            </button>
-            <div className="avatar-uploader__text-container">
-              <div className="avatar-uploader__text">
-                Dụng lượng file tối đa 1 MB
-              </div>
-              <div className="avatar-uploader__text">Định dạng:.JPEG, .PNG</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {userLoading
+        ? ""
+        : userError
+        ? ""
+        : userInfor && <UserInfor userInfor={userInfor} />}
     </div>
   );
 }

@@ -4,4 +4,4 @@ export const validatePassword = new RegExp(
   "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 );
 export const validateEmail = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
-export const validPassword = new RegExp("^[a-z0-9_ ]{6,15}$");
+export const validPassword = new RegExp("^[a-z0-9_]{6,15}$");

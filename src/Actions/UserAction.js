@@ -3,6 +3,9 @@ import {
   CHECK_OTP_FAIL,
   CHECK_OTP_REQUEST,
   CHECK_OTP_SUCCESS,
+  UPDATE_USER_DETAIL_FAIL,
+  UPDATE_USER_DETAIL_REQUEST,
+  UPDATE_USER_DETAIL_SUCCESS,
   USER_DETAIL_FAIL,
   USER_DETAIL_REQUEST,
   USER_DETAIL_SUCCESS,
@@ -31,7 +34,6 @@ export const checkOtp = (emailAddress) => async (dispatch) => {
   dispatch({ type: CHECK_OTP_REQUEST, payload: emailAddress });
   try {
     const code = await userApi.checkOtp(emailAddress);
-    console.log(code);
     dispatch({ type: CHECK_OTP_SUCCESS, payload: code });
   } catch (error) {
     dispatch({
@@ -64,7 +66,6 @@ export const signin = (username, password) => async (dispatch) => {
   try {
     const data = await userApi.signIn({ username, password });
     const { jwttoken } = data;
-    console.log(jwttoken);
     localStorage.setItem("access_token", jwttoken);
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
@@ -141,7 +142,7 @@ export const listUsers = () => async (dispatch) => {
 export const userDetailAction = (id) => async (dispatch) => {
   dispatch({ type: USER_DETAIL_REQUEST });
   try {
-    const { data } = await userApi.userDetail(id);
+    const data = await userApi.userDetail(id);
     dispatch({ type: USER_DETAIL_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -152,6 +153,15 @@ export const userDetailAction = (id) => async (dispatch) => {
   }
 };
 
+export const updateUserDetailAction = (params) => async (dispatch) => {
+  dispatch({ type: UPDATE_USER_DETAIL_REQUEST });
+  try {
+    const data = await userApi.updateUserDetail(params);
+    dispatch({ type: UPDATE_USER_DETAIL_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: UPDATE_USER_DETAIL_FAIL, error: error });
+  }
+};
 export const signout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   localStorage.removeItem("cartItems");

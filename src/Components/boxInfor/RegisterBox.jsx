@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../Actions/UserAction";
 import MessageBox from "./MessageBox";
 import LoadingBox from "./LoadingBox";
-import { validatePassword, validUserName } from "../../regex";
+import { validPassword, validUserName } from "../../regex";
 function RegisterBox(props) {
   const { redirect } = props;
   const { email } = props;
@@ -21,7 +21,7 @@ function RegisterBox(props) {
       setErrorName(true);
       submit = false;
     }
-    if (!validatePassword.test(password)) {
+    if (!validPassword.test(password)) {
       setErrorPassword(true);
       submit = false;
     }

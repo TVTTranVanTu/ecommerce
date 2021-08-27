@@ -4,10 +4,7 @@ import {
   SEARCH_PRODUCT_LIST_SUCCESS,
 } from "../Constants/SearchProductContants";
 
-export const productSearchReducer = (
-  state = { loading: true, data: {} },
-  action
-) => {
+export const productSearchReducer = (state = { loading: true }, action) => {
   switch (action.type) {
     case SEARCH_PRODUCT_LIST_REQUEST:
       return { loading: true };

@@ -33,6 +33,10 @@ const userApi = {
     const url = `/home/user-details/${id}`;
     return axiosClient.get(url);
   },
+  updateUserDetail: (params) => {
+    const url = `/home/user-details`;
+    return axiosClient.put(url, params);
+  },
 };
 
 export default userApi;

@@ -2,6 +2,10 @@ import {
   CHECK_OTP_FAIL,
   CHECK_OTP_REQUEST,
   CHECK_OTP_SUCCESS,
+  UPDATE_USER_DETAIL_FAIL,
+  UPDATE_USER_DETAIL_REQUEST,
+  UPDATE_USER_DETAIL_RESET,
+  UPDATE_USER_DETAIL_SUCCESS,
   USER_DETAIL_FAIL,
   USER_DETAIL_REQUEST,
   USER_DETAIL_SUCCESS,
@@ -121,13 +125,31 @@ export const userListReducer = (state = { loading: true }, action) => {
   }
 };
 
-export const userDetailReducer = (state = { loading: true }, action) => {
+export const userDetailReducer = (
+  state = { loading: true, userInfor: {} },
+  action
+) => {
   switch (action.type) {
     case USER_DETAIL_REQUEST:
       return { loading: true };
     case USER_DETAIL_SUCCESS:
-      return { loading: false, userDetail: action.payload };
+      return { loading: false, userInfor: action.payload };
     case USER_DETAIL_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const updateUserDetailReducer = (state = { loading: true }, action) => {
+  switch (action.type) {
+    case UPDATE_USER_DETAIL_REQUEST:
+      return { loading: true };
+    case UPDATE_USER_DETAIL_SUCCESS:
+      return { loading: false, success: true };
+    case UPDATE_USER_DETAIL_RESET:
+      return {};
+    case UPDATE_USER_DETAIL_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

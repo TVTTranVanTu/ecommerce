@@ -1,0 +1,93 @@
+.order-list {
+    box-shadow: 0 0 0 1px #e5e5e5;
+}
+.order-list-header {
+    display: flex;
+    padding: 12px 16px;
+    background: #f6f6f6;
+    border-radius: 4px;
+    color: #757575;
+    font-size: 14px;
+    border: 1px solid #e8e8e8;
+    .items {
+        width: 60%;
+    }
+    .item {
+        width: 100%;
+        display: flex;
+        .item-product {
+            width: 50%;
+        }
+        .item-price {
+            width: 15%;
+        }
+        .item-quantity {
+            width: 15%;
+        }
+        .item-status {
+            width: 20%;
+        }
+    }
+
+    .item-total {
+        width: 10%;
+    }
+
+    .item-name {
+        width: 15%;
+    }
+    .item-phonenumber {
+        width: 15%;
+    }
+}
+.element {
+    text-align: center;
+    align-items: center;
+}
+.order-result {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 5px 0;
+    padding-left: 16px;
+    position: relative;
+    padding-right: 16px;
+    padding-top: 10px;
+    border-bottom: 1px solid #e8e8e8;
+
+    .items {
+        width: 60%;
+        display: block;
+    }
+    .item {
+        display: flex;
+        .item-product {
+            width: 50%;
+        }
+        .item-price {
+            width: 15%;
+        }
+        .item-quantity {
+            width: 15%;
+        }
+        .item-status {
+            width: 20%;
+        }
+    }
+    .item-total {
+        width: 10%;
+    }
+
+    .item-name {
+        width: 15%;
+    }
+    .item-phonenumber {
+        width: 15%;
+    }
+}
+.bt {
+    padding-bottom: 5px;
+}
+.tp {
+    padding-top: 5px;
+}

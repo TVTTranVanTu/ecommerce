@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { listProductSearch } from "../Actions/SearchProductAction";
 import logo from "../assets/logo1.png";
 function Header(props) {
+  const history = useHistory();
   const cart = useSelector((state) => state.cart);
   const [keyword, setKeyword] = useState("");
   const { cartItems } = cart;
@@ -16,10 +17,13 @@ function Header(props) {
 
   const listProductsSearch = useSelector((state) => state.listProductsSearch);
   const { loading, error, data } = listProductsSearch;
-
+  console.log(data);
   const searchListProduct = () => {
     dispatch(listProductSearch(keyword, filters));
   };
+  useEffect(() => {
+    data && history.push(`/search/${keyword}`);
+  }, [data, history]);
   return (
     <div className="header">
       <div className="container">
